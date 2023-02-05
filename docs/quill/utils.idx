@@ -1,0 +1,12 @@
+`[]`	quill/utils.html#[],cstring,HSlice[T,U]	utils: `[]`[T, U](s: cstring; i: HSlice[T, U]): cstring	
+clear	quill/utils.html#clear,Element	utils: clear(e: Element)	
+lastChild	quill/utils.html#lastChild,Element	utils: lastChild(e: Element): Node	
+toCstr	quill/utils.html#toCstr.t,char	utils: toCstr(c: char): untyped	
+toJsStr	quill/utils.html#toJsStr,string	utils: toJsStr(s: string): cstring	
+createRawText	quill/utils.html#createRawText,string	utils: createRawText(str: string): Node	
+replace	quill/utils.html#replace,cstring,cstring,cstring	utils: replace(tg: cstring; a: cstring; b: cstring): cstring	
+innerHTML	quill/utils.html#innerHTML,Element	utils: innerHTML(e: Element): cstring	
+innerHTML=	quill/utils.html#innerHTML=,Element,cstring	utils: innerHTML=(e: Element; s: cstring)	
+selectionStart	quill/utils.html#selectionStart,Element	utils: selectionStart(txtarea: Element): int	
+selectionEnd	quill/utils.html#selectionEnd,Element	utils: selectionEnd(txtarea: Element): int	
+`[]=`	quill/utils.html#[]=,Element,int,Node	utils: `[]=`(parent: Element; i: int; child: Node)	
