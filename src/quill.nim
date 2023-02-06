@@ -89,6 +89,19 @@ There are also sectors, which reduce the text passed to onDraw. Say for example 
 **Note**: Why is my inserted text not showing? You have to have a `myquill.forceRedraw()` at the end to make it show.
 
 **Warning**: `forceRedraw()` and `enter()` must be the last call in your draw proc, also note that `enter()` replaces `forceRedraw()`.
+
+Gutter
+========
+To add a gutter (numbers on the side), just add the code below:
+
+.. code:: nim
+
+  # After import quill
+  import quill/ext/gutters
+
+  # Right before myquill.init()
+  myquill.initGutter() 
+..
 ]##
 
 
