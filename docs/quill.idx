@@ -1,3 +1,4 @@
+Quill	quill.html
 QuillOnDraw	quill.html#QuillOnDraw	quill: QuillOnDraw	
 QuillOnSegment	quill.html#QuillOnSegment	quill: QuillOnSegment	
 Quill	quill.html#Quill	quill: Quill	
@@ -13,3 +14,8 @@ draw	quill.html#draw,Quill,Node	quill: draw(q: var Quill; n: Node)
 enter	quill.html#enter,Quill,int	quill: enter(q: var Quill; pos: int)	
 insert	quill.html#insert,Quill,cstring	quill: insert(q: var Quill; text: cstring)	
 forceRedraw	quill.html#forceRedraw,Quill	quill: forceRedraw(q: var Quill)	
+Example	quill.html#example	 Example	
+Docs	quill.html#docs	 Docs	
+Installing	quill.html#installing	 Installing	
+Guide	quill.html#guide	 Guide	
+Insert and sectors	quill.html#insert-and-sectors	 Insert and sectors	

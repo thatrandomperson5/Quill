@@ -17,7 +17,7 @@
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'/>
 
 <!-- CSS -->
-<title>src/quill</title>
+<title>Quill</title>
 <link rel="stylesheet" type="text/css" href="nimdoc.out.css">
 
 <script type="text/javascript" src="dochack.js"></script>
@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', main);
 <body>
 <div class="document" id="documentId">
   <div class="container">
-    <h1 class="title">src/quill</h1>
+    <h1 class="title">Quill</h1>
     <div class="row">
   <div class="three columns">
   <div class="theme-switch-wrapper">
@@ -98,6 +98,11 @@ window.addEventListener('DOMContentLoaded', main);
     </select>
   </div>
   <ul class="simple simple-toc" id="toc-list">
+<li><a class="reference" id="example_toc" href="#example">Example</a></li>
+<li><a class="reference" id="docs_toc" href="#docs">Docs</a></li>
+<li><a class="reference" id="installing_toc" href="#installing">Installing</a></li>
+<li><a class="reference" id="guide_toc" href="#guide">Guide</a></li>
+<li><a class="reference" id="insert-and-sectors_toc" href="#insert-and-sectors">Insert and sectors</a></li>
 <li>
   <a class="reference reference-toplevel" href="#6" id="56">Imports</a>
   <ul class="simple simple-toc-section">
@@ -204,7 +209,43 @@ window.addEventListener('DOMContentLoaded', main);
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
   
-  <p class="module-desc"></p>
+  <p class="module-desc"><p>Quill is a nim js library for making text editors, it is made completely in nim and is designed to be easy to use.</p>
+
+<h1><a class="toc-backref" id="example" href="#example">Example</a></h1><p>The example can be found at <a class="reference external" href="https://thatrandomperson5.github.io/Quill/example">https://thatrandomperson5.github.io/Quill/example</a></p>
+
+<h1><a class="toc-backref" id="docs" href="#docs">Docs</a></h1><p>Docs can be found at <a class="reference external" href="https://thatrandomperson5.github.io/Quill/quill">https://thatrandomperson5.github.io/Quill/quill</a></p>
+
+<h1><a class="toc-backref" id="installing" href="#installing">Installing</a></h1><pre class="listing">nimble install https://github.com/thatrandomperson5/Quill</pre>
+<h1><a class="toc-backref" id="guide" href="#guide">Guide</a></h1><p>We first need to add some css to our main html file:</p>
+<pre class="listing">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/thatrandomperson5/quill@master/js/quill.css&quot;&gt;</pre><p>After that we can start coding. A quill has a structure to get it to work:</p>
+<ul class="simple"><li>Create the quill</li>
+<li>Set any default text</li>
+<li>Add <tt class="docutils literal"><span class="pre"><span class="Identifier">onDraw</span></span></tt><ul class="simple"><li>Main html generation</li>
+<li>Sector entering or forced redraw</li>
+</ul>
+</li>
+<li>Init extentions and then quill</li>
+</ul>
+<p>Here is a basic example:</p>
+<pre class="listing"><span class="Comment"># From tests</span>
+<span class="Keyword">import</span> <span class="Identifier">quill</span><span class="Punctuation">,</span> <span class="Identifier">dom</span>
+
+<span class="Keyword">var</span> <span class="Identifier">myquill</span> <span class="Operator">=</span> <span class="Identifier">newQuill</span><span class="Punctuation">(</span><span class="Identifier">document</span><span class="Operator">.</span><span class="Identifier">getElementById</span><span class="Punctuation">(</span><span class="StringLit">&quot;quill&quot;</span><span class="Punctuation">)</span><span class="Punctuation">,</span> <span class="StringLit">&quot;70vh&quot;</span><span class="Punctuation">)</span> <span class="Comment"># create the quill with height of 70</span>
+<span class="Identifier">myquill</span><span class="Operator">.</span><span class="Identifier">text</span> <span class="Operator">=</span> <span class="StringLit">&quot;Hello world&quot;</span> <span class="Comment"># Set the default text</span>
+<span class="Identifier">myquill</span><span class="Operator">.</span><span class="Identifier">onDraw</span> <span class="Operator">=</span> <span class="Keyword">proc</span> <span class="Punctuation">(</span><span class="Identifier">q</span><span class="Punctuation">:</span> <span class="Keyword">var</span> <span class="Identifier">Quill</span><span class="Punctuation">,</span> <span class="Identifier">str</span><span class="Punctuation">:</span> <span class="Identifier">cstring</span><span class="Punctuation">,</span> <span class="Identifier">isDel</span><span class="Punctuation">:</span> <span class="Identifier">bool</span><span class="Punctuation">)</span> <span class="Operator">=</span>
+  <span class="Comment"># Main html generation</span>
+  <span class="Keyword">let</span> <span class="Identifier">txt</span> <span class="Operator">=</span> <span class="Identifier">document</span><span class="Operator">.</span><span class="Identifier">createElement</span><span class="Punctuation">(</span><span class="StringLit">&quot;span&quot;</span><span class="Punctuation">)</span>
+  <span class="Identifier">txt</span><span class="Operator">.</span><span class="Identifier">appendChild</span> <span class="Identifier">document</span><span class="Operator">.</span><span class="Identifier">createTextNode</span><span class="Punctuation">(</span><span class="Identifier">str</span><span class="Punctuation">)</span>
+  <span class="Identifier">q</span><span class="Operator">.</span><span class="Identifier">draw</span><span class="Punctuation">(</span><span class="Identifier">txt</span><span class="Punctuation">)</span>
+
+<span class="Identifier">myquill</span><span class="Operator">.</span><span class="Identifier">init</span><span class="Punctuation">(</span><span class="Punctuation">)</span> <span class="Comment"># Start the quill</span></pre><p><strong>Note:</strong> There is no reason to redraw if you don't use <tt class="docutils literal"><span class="pre"><span class="Identifier">insert</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>, will be explained in more detail later on.</p>
+<p>This is the most basic quill! But it does not do anything, so is there anything diffrent then a normal textarea? Well, the draw proc takes html, so you can color and style as much as you want! Try making the span a random color! You can also use the features described below to help you.</p>
+
+<h1><a class="toc-backref" id="insert-and-sectors" href="#insert-and-sectors">Insert and sectors</a></h1><p>You can have a <tt class="docutils literal"><span class="pre"><span class="Identifier">insert</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt> call in your ondraw proc. This adds text, for example an indent, to your quill. This inserts at the current cursor position, if you want to add text a diffrent way, use the <tt class="docutils literal"><span class="pre"><span class="Identifier">text</span><span class="Operator">=</span></span></tt> proc.</p>
+<p>There are also sectors, which reduce the text passed to onDraw. Say for example your quill only needed to process words and you have this sentance: <tt class="docutils literal"><span class="pre"><span class="Identifier">hello</span> <span class="Identifier">world</span> <span class="Identifier">good</span> <span class="Identifier">souls</span></span></tt>. Normally your draw proc would get passed the whole thing each time, but when processing &quot;world&quot;, your code does not need anything from &quot;hello&quot;. So, when you detect a space, you would enter a sector using <tt class="docutils literal"><span class="pre"><span class="Identifier">enter</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>. This would mean if the word &quot;hello&quot; was changed to &quot;hi&quot; you would get passed &quot;hi&quot; instead of &quot;hi world good souls&quot;. This feature is mainly for efficiency, and a full example can be found in the tests folder.</p>
+<p><strong>Note</strong>: Why is my inserted text not showing? You have to have a <tt class="docutils literal"><span class="pre"><span class="Identifier">myquill</span><span class="Operator">.</span><span class="Identifier">forceRedraw</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt> at the end to make it show.</p>
+<p><strong>Warning</strong>: <tt class="docutils literal"><span class="pre"><span class="Identifier">forceRedraw</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt> and <tt class="docutils literal"><span class="pre"><span class="Identifier">enter</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt> must be the last call in your draw proc, also note that <tt class="docutils literal"><span class="pre"><span class="Identifier">enter</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt> replaces <tt class="docutils literal"><span class="pre"><span class="Identifier">forceRedraw</span><span class="Punctuation">(</span><span class="Punctuation">)</span></span></tt>. </p>
+</p>
   <div class="section" id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
@@ -265,7 +306,7 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><pre><span class="Keyword">proc</span> <a href="#draw%2CQuill%2CNode"><span class="Identifier">draw</span></a><span class="Other">(</span><span class="Identifier">q</span><span class="Other">:</span> <span class="Keyword">var</span> <a href="quill.html#Quill"><span class="Identifier">Quill</span></a><span class="Other">;</span> <span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">Node</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-
+Draw dom node <tt class="docutils literal"><span class="pre"><span class="Identifier">n</span></span></tt> to quill <tt class="docutils literal"><span class="pre"><span class="Identifier">q</span></span></tt>
 
 </dd>
 </div>
