@@ -1,2 +1,3 @@
 switch("path", "$projectDir/../src")
-switch("o", "./docs/main.js")
+# switch("d", "release")
+switch("d", "quillDebug")

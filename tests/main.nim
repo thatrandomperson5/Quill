@@ -17,7 +17,7 @@ myquill.onDraw = proc (q: var Quill, str: cstring, isDel: bool) =
   # Create a span of random color and then draw it
   let txt = document.createElement("span")
   let color = genRandomColor()
-  txt.setAttr("style", fmt"color: {color}")
+  txt.setAttr("style", $(fmt"color: {color}"))
   txt.appendChild document.createTextNode(str) 
   q.draw(txt)
   # If the last character is a newline on add only

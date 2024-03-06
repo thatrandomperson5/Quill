@@ -2,14 +2,14 @@
 var framePtr = null;
 var excHandler = 0;
 var lastJSError = null;
-var NTI838860861 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI603979789 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
+var NTI486539268 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI486539267 = {size: 0, kind: 22, base: null, node: null, finalizer: null};
+var NTI486539345 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
+var NTI822083645 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
+var NTI620757005 = {size: 0, kind: 24, base: null, node: null, finalizer: null};
 var NTI33555124 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI33555114 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI33555125 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
-var NTI989865635 = {size: 0,kind: 31,base: null,node: null,finalizer: null};
-var NTI989866114 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
-var NTI33555121 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
+var NTI486539281 = {size: 0,kind: 31,base: null,node: null,finalizer: null};
+var NTI486539289 = {size: 0, kind: 18, base: null, node: null, finalizer: null};
 var NTI33555128 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI33555130 = {size: 0, kind: 17, base: null, node: null, finalizer: null};
 var NTI33554456 = {size: 0,kind: 31,base: null,node: null,finalizer: null};
@@ -53,29 +53,96 @@ NTI33555130.base = NTI33555113;
 var NNI33555128 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI33555128.node = NNI33555128;
 NTI33555128.base = NTI33555113;
-var NNI33555121 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
-NTI33555121.node = NNI33555121;
-NTI33555121.base = NTI33555120;
-var NNI989866114 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "a", len: 0, typ: NTI989865635, name: "a", sons: null}, 
+var NNI486539289 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "a", len: 0, typ: NTI486539281, name: "a", sons: null}, 
 {kind: 1, offset: "b", len: 0, typ: NTI33554456, name: "b", sons: null}]};
-NTI989866114.node = NNI989866114;
-var NNI33555125 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
-NTI33555125.node = NNI33555125;
-var NNI33555114 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
-NTI33555114.node = NNI33555114;
-NTI33555114.base = NTI33555112;
-NTI33555125.base = NTI33555114;
+NTI486539289.node = NNI486539289;
 var NNI33555124 = {kind: 2, len: 0, offset: 0, typ: null, name: null, sons: []};
 NTI33555124.node = NNI33555124;
 NTI33555124.base = NTI33555113;
-NTI603979789.base = NTI33554456;
-var NNI838860861 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "a", len: 0, typ: NTI33554456, name: "a", sons: null}, 
+NTI620757005.base = NTI33554456;
+var NNI822083645 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "a", len: 0, typ: NTI33554456, name: "a", sons: null}, 
 {kind: 1, offset: "b", len: 0, typ: NTI33554456, name: "b", sons: null}]};
-NTI838860861.node = NNI838860861;
+NTI822083645.node = NNI822083645;
+var NNI486539268 = {kind: 2, len: 2, offset: 0, typ: null, name: null, sons: [{kind: 1, offset: "kind", len: 0, typ: NTI33554440, name: "kind", sons: null}, 
+{kind: 1, offset: "value", len: 0, typ: NTI33554440, name: "value", sons: null}]};
+NTI486539268.node = NNI486539268;
+NTI486539267.base = NTI486539268;
+NTI486539345.base = NTI486539267;
 
-function mnewString(len_33556893) {
-        return new Array(len_33556893);
-  
+function toJSStr(s_33556807) {
+                    var Temporary5;
+            var Temporary7;
+
+  var result_33556808 = null;
+
+    var res_33556842 = newSeq_33556825((s_33556807).length);
+    var i_33556843 = 0;
+    var j_33556844 = 0;
+    Label1: do {
+        Label2: while (true) {
+        if (!(i_33556843 < (s_33556807).length)) break Label2;
+          var c_33556845 = s_33556807[i_33556843];
+          if ((c_33556845 < 128)) {
+          res_33556842[j_33556844] = String.fromCharCode(c_33556845);
+          i_33556843 += 1;
+          }
+          else {
+            var helper_33556857 = newSeq_33556825(0);
+            Label3: do {
+                Label4: while (true) {
+                if (!true) break Label4;
+                  var code_33556858 = c_33556845.toString(16);
+                  if ((((code_33556858) == null ? 0 : (code_33556858).length) == 1)) {
+                  helper_33556857.push("%0");;
+                  }
+                  else {
+                  helper_33556857.push("%");;
+                  }
+                  
+                  helper_33556857.push(code_33556858);;
+                  i_33556843 += 1;
+                    if (((s_33556807).length <= i_33556843)) Temporary5 = true; else {                      Temporary5 = (s_33556807[i_33556843] < 128);                    }                  if (Temporary5) {
+                  break Label3;
+                  }
+                  
+                  c_33556845 = s_33556807[i_33556843];
+                }
+            } while (false);
+++excHandler;
+            Temporary7 = framePtr;
+            try {
+            res_33556842[j_33556844] = decodeURIComponent(helper_33556857.join(""));
+--excHandler;
+} catch (EXCEPTION) {
+ var prevJSError = lastJSError;
+ lastJSError = EXCEPTION;
+ --excHandler;
+            framePtr = Temporary7;
+            res_33556842[j_33556844] = helper_33556857.join("");
+            lastJSError = prevJSError;
+            } finally {
+            framePtr = Temporary7;
+            }
+          }
+          
+          j_33556844 += 1;
+        }
+    } while (false);
+    if (res_33556842.length < j_33556844) { for (var i = res_33556842.length ; i < j_33556844 ; ++i) res_33556842.push(null); }
+               else { res_33556842.length = j_33556844; };
+    result_33556808 = res_33556842.join("");
+
+  return result_33556808;
+
+}
+
+function rawEcho() {
+          var buf = "";
+      for (var i = 0; i < arguments.length; ++i) {
+        buf += toJSStr(arguments[i]);
+      }
+      console.log(buf);
+    
 
   
 }
@@ -84,6 +151,45 @@ function makeNimstrLit(c_33556801) {
       var result = [];
   for (var i = 0; i < c_33556801.length; ++i) {
     result[i] = c_33556801.charCodeAt(i);
+  }
+  return result;
+  
+
+  
+}
+
+function cstrToNimstr(c_33556804) {
+      var ln = c_33556804.length;
+  var result = new Array(ln);
+  var r = 0;
+  for (var i = 0; i < ln; ++i) {
+    var ch = c_33556804.charCodeAt(i);
+
+    if (ch < 128) {
+      result[r] = ch;
+    }
+    else {
+      if (ch < 2048) {
+        result[r] = (ch >> 6) | 192;
+      }
+      else {
+        if (ch < 55296 || ch >= 57344) {
+          result[r] = (ch >> 12) | 224;
+        }
+        else {
+            ++i;
+            ch = 65536 + (((ch & 1023) << 10) | (c_33556804.charCodeAt(i) & 1023));
+            result[r] = (ch >> 18) | 240;
+            ++r;
+            result[r] = ((ch >> 12) & 63) | 128;
+        }
+        ++r;
+        result[r] = ((ch >> 6) & 63) | 128;
+      }
+      ++r;
+      result[r] = (ch & 63) | 128;
+    }
+    ++r;
   }
   return result;
   
@@ -194,120 +300,9 @@ function nimCopy(dest_33557140, src_33557141, ti_33557142) {
 
 }
 
-function cstrToNimstr(c_33556804) {
-      var ln = c_33556804.length;
-  var result = new Array(ln);
-  var r = 0;
-  for (var i = 0; i < ln; ++i) {
-    var ch = c_33556804.charCodeAt(i);
-
-    if (ch < 128) {
-      result[r] = ch;
-    }
-    else {
-      if (ch < 2048) {
-        result[r] = (ch >> 6) | 192;
-      }
-      else {
-        if (ch < 55296 || ch >= 57344) {
-          result[r] = (ch >> 12) | 224;
-        }
-        else {
-            ++i;
-            ch = 65536 + (((ch & 1023) << 10) | (c_33556804.charCodeAt(i) & 1023));
-            result[r] = (ch >> 18) | 240;
-            ++r;
-            result[r] = ((ch >> 12) & 63) | 128;
-        }
-        ++r;
-        result[r] = ((ch >> 6) & 63) | 128;
-      }
-      ++r;
-      result[r] = (ch & 63) | 128;
-    }
-    ++r;
-  }
-  return result;
+function mnewString(len_33556893) {
+        return new Array(len_33556893);
   
-
-  
-}
-
-function toJSStr(s_33556807) {
-                    var Temporary5;
-            var Temporary7;
-
-  var result_33556808 = null;
-
-    var res_33556842 = newSeq_33556825((s_33556807).length);
-    var i_33556843 = 0;
-    var j_33556844 = 0;
-    Label1: do {
-        Label2: while (true) {
-        if (!(i_33556843 < (s_33556807).length)) break Label2;
-          var c_33556845 = s_33556807[i_33556843];
-          if ((c_33556845 < 128)) {
-          res_33556842[j_33556844] = String.fromCharCode(c_33556845);
-          i_33556843 += 1;
-          }
-          else {
-            var helper_33556857 = newSeq_33556825(0);
-            Label3: do {
-                Label4: while (true) {
-                if (!true) break Label4;
-                  var code_33556858 = c_33556845.toString(16);
-                  if ((((code_33556858) == null ? 0 : (code_33556858).length) == 1)) {
-                  helper_33556857.push("%0");;
-                  }
-                  else {
-                  helper_33556857.push("%");;
-                  }
-                  
-                  helper_33556857.push(code_33556858);;
-                  i_33556843 += 1;
-                    if (((s_33556807).length <= i_33556843)) Temporary5 = true; else {                      Temporary5 = (s_33556807[i_33556843] < 128);                    }                  if (Temporary5) {
-                  break Label3;
-                  }
-                  
-                  c_33556845 = s_33556807[i_33556843];
-                }
-            } while (false);
-++excHandler;
-            Temporary7 = framePtr;
-            try {
-            res_33556842[j_33556844] = decodeURIComponent(helper_33556857.join(""));
---excHandler;
-} catch (EXCEPTION) {
- var prevJSError = lastJSError;
- lastJSError = EXCEPTION;
- --excHandler;
-            framePtr = Temporary7;
-            res_33556842[j_33556844] = helper_33556857.join("");
-            lastJSError = prevJSError;
-            } finally {
-            framePtr = Temporary7;
-            }
-          }
-          
-          j_33556844 += 1;
-        }
-    } while (false);
-    if (res_33556842.length < j_33556844) { for (var i = res_33556842.length ; i < j_33556844 ; ++i) res_33556842.push(null); }
-               else { res_33556842.length = j_33556844; };
-    result_33556808 = res_33556842.join("");
-
-  return result_33556808;
-
-}
-
-function raiseException(e_33556667, ename_33556668) {
-    e_33556667.name = ename_33556668;
-    if ((excHandler == 0)) {
-    unhandledException(e_33556667);
-    }
-    
-    e_33556667.trace = nimCopy(null, rawWriteStackTrace_33556631(), NTI33554439);
-    throw e_33556667;
 
   
 }
@@ -360,12 +355,18 @@ function chckIndx(i_33557184, a_33557185, b_33557186) {
   return result_33557187;
 
 }
-var ConstSet2 = setConstr(60, 62, 94);
-var ConstSet3 = setConstr(60, 62, 94);
-var ConstSet4 = setConstr(45, 43, 32);
-var ConstSet5 = setConstr([48, 57]);
-var ConstSet6 = setConstr([48, 57]);
-var ConstSet7 = setConstr([48, 57]);
+
+function raiseException(e_33556667, ename_33556668) {
+    e_33556667.name = ename_33556668;
+    if ((excHandler == 0)) {
+    unhandledException(e_33556667);
+    }
+    
+    e_33556667.trace = nimCopy(null, rawWriteStackTrace_33556631(), NTI33554439);
+    throw e_33556667;
+
+  
+}
 
 function subInt(a_33556944, b_33556945) {
         var result = a_33556944 - b_33556945;
@@ -375,49 +376,11 @@ function subInt(a_33556944, b_33556945) {
 
   
 }
-
-function divInt(a_33556952, b_33556953) {
-        if (b_33556953 == 0) raiseDivByZero();
-    if (b_33556953 == -1 && a_33556952 == 2147483647) raiseOverflow();
-    return Math.trunc(a_33556952 / b_33556953);
-  
-
-  
-}
-
-function mulInt(a_33556948, b_33556949) {
-        var result = a_33556948 * b_33556949;
-    checkOverflowInt(result);
-    return result;
-  
-
-  
-}
-var ConstSet8 = setConstr([65, 90], [97, 122]);
-
-function nimCharToStr(x_33556517) {
-  var result_33556518 = [];
-
-    result_33556518 = nimCopy(null, mnewString(1), NTI33554439);
-    result_33556518[0] = x_33556517;
-
-  return result_33556518;
-
-}
+var ConstSet2 = setConstr(9, 32);
+var ConstSet3 = setConstr(58, 61);
 
 function addChar(x_33557255, c_33557256) {
     x_33557255.push(c_33557256);
-
-  
-}
-
-function rawEcho() {
-          var buf = "";
-      for (var i = 0; i < arguments.length; ++i) {
-        buf += toJSStr(arguments[i]);
-      }
-      console.log(buf);
-    
 
   
 }
@@ -1845,7 +1808,7 @@ framePtr = F.prev;
 var F = {procname: "module hashes", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/hashes.nim", line: 0};
 framePtr = F;
 F.line = 214;
-var objectID_771752098 = [0];
+var objectID_754974882 = [0];
 framePtr = F.prev;
 var F = {procname: "module hashes", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/hashes.nim", line: 0};
 framePtr = F;
@@ -3277,1171 +3240,31 @@ framePtr = F.prev;
 var F = {procname: "module quill", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
+var F = {procname: "module workerapi", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/workerapi.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
+var F = {procname: "module workerapi", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/workerapi.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
+var F = {procname: "module workerapi", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/workerapi.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
+var F = {procname: "module workerapi", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/workerapi.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
+var F = {procname: "module workerapi", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/workerapi.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
+var F = {procname: "module workerapi", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/workerapi.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
+var F = {procname: "module workerapi", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/workerapi.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
+var F = {procname: "module workerapi", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/workerapi.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module parseutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module unicode", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module typetraits", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/typetraits.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module enumutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/enumutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strimpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/private/strimpl.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strimpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/private/strimpl.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strimpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/private/strimpl.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strimpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/private/strimpl.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strimpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/private/strimpl.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strimpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/private/strimpl.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strimpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/private/strimpl.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strimpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/private/strimpl.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strimpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/private/strimpl.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strimpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/private/strimpl.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strimpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/private/strimpl.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strimpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/std/private/strimpl.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strutils", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module strformat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module jscore", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/js/jscore.nim", line: 0};
-framePtr = F;
-framePtr = F.prev;
-var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/main.nim", line: 0};
+var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
 var F = {procname: "module gutters", prev: framePtr, filename: "/home/runner/Quill/src/quill/ext/gutters.nim", line: 0};
@@ -4456,80 +3279,113 @@ framePtr = F.prev;
 var F = {procname: "module gutters", prev: framePtr, filename: "/home/runner/Quill/src/quill/ext/gutters.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
-var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/main.nim", line: 0};
+var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
-var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/main.nim", line: 0};
+var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
+framePtr = F;
+F.line = 17;
+var mainWorker_486539275 = (new Worker("nimedit-worker.js"));
+framePtr = F.prev;
+var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
+framePtr = F;
+framePtr = F.prev;
+var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
+framePtr = F;
+framePtr = F.prev;
+var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
 
-function newQuill_603979802(e_603979803, height_603979804) {
-  var result_603979805 = null;
+function newQuill_620757018(e_620757019, height_620757020) {
+  var result_620757021 = null;
 
   var F = {procname: "quill.newQuill", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
   framePtr = F;
   BeforeRet: do {
     F.line = 128;
-    var q_603979806 = document.createElement("div");
+    var q_620757022 = document.createElement("div");
     F.line = 129;
-    q_603979806.className = "quill";
+    q_620757022.className = "quill";
     F.line = 130;
-    document.documentElement.setAttribute("style", ("--quill-height: " + height_603979804));
+    document.documentElement.setAttribute("style", ("--quill-height: " + height_620757020));
     F.line = 131;
-    var textEditor_603979807 = document.createElement("textarea");
+    var textEditor_620757023 = document.createElement("textarea");
     F.line = 132;
-    textEditor_603979807.className = "quill-sizing quill-invis";
+    textEditor_620757023.className = "quill-sizing quill-invis";
     F.line = 133;
-    textEditor_603979807.setAttribute("spellcheck", "false");
+    textEditor_620757023.setAttribute("spellcheck", "false");
     F.line = 135;
-    var body_603979808 = document.createElement("pre");
+    var body_620757024 = document.createElement("pre");
     F.line = 136;
-    body_603979808.className = "quill-sizing quill-text";
+    body_620757024.className = "quill-sizing quill-text";
     F.line = 137;
-    body_603979808.appendChild(document.createElement("span"));
+    body_620757024.appendChild(document.createElement("span"));
     F.line = 138;
-    var wrap_603979809 = document.createElement("div");
+    var wrap_620757025 = document.createElement("div");
     F.line = 139;
-    wrap_603979809.className = "quill-wrap";
+    wrap_620757025.className = "quill-wrap";
     F.line = 140;
-    q_603979806.appendChild(body_603979808);
+    q_620757022.appendChild(body_620757024);
     F.line = 141;
-    q_603979806.appendChild(textEditor_603979807);
+    q_620757022.appendChild(textEditor_620757023);
     F.line = 142;
-    wrap_603979809.appendChild(q_603979806);
+    wrap_620757025.appendChild(q_620757022);
     F.line = 143;
-    e_603979803.appendChild(wrap_603979809);
+    e_620757019.appendChild(wrap_620757025);
     F.line = 144;
-    result_603979805 = {internalElm: q_603979806, sectors: [0], plen: 0, onDraw: null, current: 0};
+    result_620757021 = {internalElm: q_620757022, sectors: [0], plen: 0, onDraw: null, current: 0};
     break BeforeRet;
   } while (false);
   framePtr = F.prev;
 
-  return result_603979805;
+  return result_620757021;
 
 }
 
-function eventElement_603979853(q_603979854) {
-  var result_603979855 = null;
+function eventElement_620757069(q_620757070) {
+  var result_620757071 = null;
 
   var F = {procname: "quill.eventElement", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
   framePtr = F;
     F.line = 149;
-    result_603979855 = q_603979854.internalElm.childNodes[1];
+    result_620757071 = q_620757070.internalElm.childNodes[1];
   framePtr = F.prev;
 
-  return result_603979855;
+  return result_620757071;
 
 }
 
-function textHEX3D_603979862(q_603979863, q_603979863_Idx, replacment_603979864) {
+function textHEX3D_620757078(q_620757079, q_620757079_Idx, replacment_620757080) {
   var F = {procname: "quill.text=", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
   framePtr = F;
     F.line = 160;
-    eventElement_603979853(q_603979863[q_603979863_Idx]).value = replacment_603979864;
+    eventElement_620757069(q_620757079[q_620757079_Idx]).value = replacment_620757080;
   framePtr = F.prev;
 
   
+}
+
+function highlight_486539345(str_486539346) {
+  var F = {procname: "main.highlight", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
+  framePtr = F;
+    F.line = 29;
+    mainWorker_486539275.postMessage((str_486539346 + "\n"));
+  framePtr = F.prev;
+
+  
+}
+
+function newSeq_33556825(len_33556827) {
+  var result_33556828 = [];
+
+  var F = {procname: "newSeq.newSeq", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system.nim", line: 0};
+  framePtr = F;
+    F.line = 680;
+    result_33556828 = new Array(len_33556827); for (var i = 0 ; i < len_33556827 ; ++i) { result_33556828[i] = null; }  framePtr = F.prev;
+
+  return result_33556828;
+
 }
 
 function add_33556419(x_33556420, x_33556420_Idx, y_33556421) {
@@ -4582,140 +3438,6 @@ function nimCopyAux(dest_33557144, src_33557145, n_33557146) {
   
 }
 
-function auxWriteStackTrace_33556559(f_33556560) {
-          var Temporary3;
-
-  var result_33556561 = [[]];
-
-    var it_33556569 = f_33556560;
-    var i_33556570 = 0;
-    var total_33556571 = 0;
-    var tempFrames_33556572 = arrayConstr(64, {Field0: null, Field1: 0, Field2: null}, NTI33555919);
-    Label1: do {
-        Label2: while (true) {
-          if (!!((it_33556569 == null))) Temporary3 = false; else {            Temporary3 = (i_33556570 <= 63);          }        if (!Temporary3) break Label2;
-          tempFrames_33556572[i_33556570].Field0 = it_33556569.procname;
-          tempFrames_33556572[i_33556570].Field1 = it_33556569.line;
-          tempFrames_33556572[i_33556570].Field2 = it_33556569.filename;
-          i_33556570 += 1;
-          total_33556571 += 1;
-          it_33556569 = it_33556569.prev;
-        }
-    } while (false);
-    Label4: do {
-        Label5: while (true) {
-        if (!!((it_33556569 == null))) break Label5;
-          total_33556571 += 1;
-          it_33556569 = it_33556569.prev;
-        }
-    } while (false);
-    result_33556561[0] = nimCopy(null, [], NTI33554439);
-    if (!((total_33556571 == i_33556570))) {
-    result_33556561[0].push.apply(result_33556561[0], makeNimstrLit("("));;
-    result_33556561[0].push.apply(result_33556561[0], HEX24_335544323((total_33556571 - i_33556570)));;
-    result_33556561[0].push.apply(result_33556561[0], makeNimstrLit(" calls omitted) ...\x0A"));;
-    }
-    
-    Label6: do {
-      var j_33556602 = 0;
-      var colontmp__469762177 = 0;
-      colontmp__469762177 = (i_33556570 - 1);
-      var res_469762179 = colontmp__469762177;
-      Label7: do {
-          Label8: while (true) {
-          if (!(0 <= res_469762179)) break Label8;
-            j_33556602 = res_469762179;
-            result_33556561[0].push.apply(result_33556561[0], cstrToNimstr(tempFrames_33556572[j_33556602].Field2));;
-            if ((0 < tempFrames_33556572[j_33556602].Field1)) {
-            result_33556561[0].push.apply(result_33556561[0], makeNimstrLit("("));;
-            addInt_251658457(result_33556561, 0, tempFrames_33556572[j_33556602].Field1);
-            if (false) {
-            result_33556561[0].push.apply(result_33556561[0], makeNimstrLit(", "));;
-            addInt_251658457(result_33556561, 0, 0);
-            }
-            
-            result_33556561[0].push.apply(result_33556561[0], makeNimstrLit(")"));;
-            }
-            
-            result_33556561[0].push.apply(result_33556561[0], makeNimstrLit(" at "));;
-            add_33556419(result_33556561, 0, tempFrames_33556572[j_33556602].Field0);
-            result_33556561[0].push.apply(result_33556561[0], makeNimstrLit("\x0A"));;
-            res_469762179 -= 1;
-          }
-      } while (false);
-    } while (false);
-
-  return result_33556561[0];
-
-}
-
-function rawWriteStackTrace_33556631() {
-  var result_33556632 = [];
-
-    if (!((framePtr == null))) {
-    result_33556632 = nimCopy(null, (makeNimstrLit("Traceback (most recent call last)\x0A") || []).concat(auxWriteStackTrace_33556559(framePtr) || []), NTI33554439);
-    }
-    else {
-      result_33556632 = nimCopy(null, makeNimstrLit("No stack traceback available\x0A"), NTI33554439);
-    }
-    
-
-  return result_33556632;
-
-}
-
-function newSeq_33556825(len_33556827) {
-  var result_33556828 = [];
-
-  var F = {procname: "newSeq.newSeq", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system.nim", line: 0};
-  framePtr = F;
-    F.line = 680;
-    result_33556828 = new Array(len_33556827); for (var i = 0 ; i < len_33556827 ; ++i) { result_33556828[i] = null; }  framePtr = F.prev;
-
-  return result_33556828;
-
-}
-
-function unhandledException(e_33556663) {
-    var buf_33556664 = [[]];
-    if (!(((e_33556663.message).length == 0))) {
-    buf_33556664[0].push.apply(buf_33556664[0], makeNimstrLit("Error: unhandled exception: "));;
-    buf_33556664[0].push.apply(buf_33556664[0], e_33556663.message);;
-    }
-    else {
-    buf_33556664[0].push.apply(buf_33556664[0], makeNimstrLit("Error: unhandled exception"));;
-    }
-    
-    buf_33556664[0].push.apply(buf_33556664[0], makeNimstrLit(" ["));;
-    add_33556419(buf_33556664, 0, e_33556663.name);
-    buf_33556664[0].push.apply(buf_33556664[0], makeNimstrLit("]\x0A"));;
-    buf_33556664[0].push.apply(buf_33556664[0], rawWriteStackTrace_33556631());;
-    var cbuf_33556665 = toJSStr(buf_33556664[0]);
-    framePtr = null;
-      if (typeof(Error) !== "undefined") {
-    throw new Error(cbuf_33556665);
-  }
-  else {
-    throw cbuf_33556665;
-  }
-  
-
-  
-}
-
-function raiseOverflow() {
-    raiseException({message: makeNimstrLit("over- or underflow"), parent: null, m_type: NTI33555122, name: null, trace: [], up: null}, "OverflowDefect");
-
-  
-}
-
-function checkOverflowInt(a_33556938) {
-        if (a_33556938 > 2147483647 || a_33556938 < -2147483648) raiseOverflow();
-  
-
-  
-}
-
 function raiseRangeError() {
     raiseException({message: makeNimstrLit("value out of range"), parent: null, m_type: NTI33555130, name: null, trace: [], up: null}, "RangeDefect");
 
@@ -4748,17 +3470,17 @@ function addChars_251658415(result_251658417, result_251658417_Idx, x_251658418,
       F.line = 46;
       var iHEX60gensym4_251658435 = 0;
       F.line = 119;
-      var i_469762172 = 0;
+      var i_486539478 = 0;
       Label2: do {
         F.line = 120;
           Label3: while (true) {
-          if (!(i_469762172 < n_251658420)) break Label3;
+          if (!(i_486539478 < n_251658420)) break Label3;
             F.line = 49;
-            iHEX60gensym4_251658435 = i_469762172;
+            iHEX60gensym4_251658435 = i_486539478;
             F.line = 49;
             result_251658417[result_251658417_Idx][chckIndx(addInt(old_251658421, iHEX60gensym4_251658435), 0, (result_251658417[result_251658417_Idx]).length - 1)] = x_251658418.charCodeAt(chckIndx(addInt(start_251658419, iHEX60gensym4_251658435), 0, (x_251658418).length - 1));
             F.line = 122;
-            i_469762172 = addInt(i_469762172, 1);
+            i_486539478 = addInt(i_486539478, 1);
           }
       } while (false);
     } while (false);
@@ -4810,906 +3532,245 @@ function HEX24_335544323(x_335544324) {
 
 }
 
-function raiseDivByZero() {
-    raiseException({message: makeNimstrLit("division by zero"), parent: null, m_type: NTI33555121, name: null, trace: [], up: null}, "DivByZeroDefect");
+function auxWriteStackTrace_33556559(f_33556560) {
+          var Temporary3;
+
+  var result_33556561 = [[]];
+
+    var it_33556569 = f_33556560;
+    var i_33556570 = 0;
+    var total_33556571 = 0;
+    var tempFrames_33556572 = arrayConstr(64, {Field0: null, Field1: 0, Field2: null}, NTI33555919);
+    Label1: do {
+        Label2: while (true) {
+          if (!!((it_33556569 == null))) Temporary3 = false; else {            Temporary3 = (i_33556570 <= 63);          }        if (!Temporary3) break Label2;
+          tempFrames_33556572[i_33556570].Field0 = it_33556569.procname;
+          tempFrames_33556572[i_33556570].Field1 = it_33556569.line;
+          tempFrames_33556572[i_33556570].Field2 = it_33556569.filename;
+          i_33556570 += 1;
+          total_33556571 += 1;
+          it_33556569 = it_33556569.prev;
+        }
+    } while (false);
+    Label4: do {
+        Label5: while (true) {
+        if (!!((it_33556569 == null))) break Label5;
+          total_33556571 += 1;
+          it_33556569 = it_33556569.prev;
+        }
+    } while (false);
+    result_33556561[0] = nimCopy(null, [], NTI33554439);
+    if (!((total_33556571 == i_33556570))) {
+    result_33556561[0].push.apply(result_33556561[0], makeNimstrLit("("));;
+    result_33556561[0].push.apply(result_33556561[0], HEX24_335544323((total_33556571 - i_33556570)));;
+    result_33556561[0].push.apply(result_33556561[0], makeNimstrLit(" calls omitted) ...\x0A"));;
+    }
+    
+    Label6: do {
+      var j_33556602 = 0;
+      var colontmp__486539470 = 0;
+      colontmp__486539470 = (i_33556570 - 1);
+      var res_486539472 = colontmp__486539470;
+      Label7: do {
+          Label8: while (true) {
+          if (!(0 <= res_486539472)) break Label8;
+            j_33556602 = res_486539472;
+            result_33556561[0].push.apply(result_33556561[0], cstrToNimstr(tempFrames_33556572[j_33556602].Field2));;
+            if ((0 < tempFrames_33556572[j_33556602].Field1)) {
+            result_33556561[0].push.apply(result_33556561[0], makeNimstrLit("("));;
+            addInt_251658457(result_33556561, 0, tempFrames_33556572[j_33556602].Field1);
+            if (false) {
+            result_33556561[0].push.apply(result_33556561[0], makeNimstrLit(", "));;
+            addInt_251658457(result_33556561, 0, 0);
+            }
+            
+            result_33556561[0].push.apply(result_33556561[0], makeNimstrLit(")"));;
+            }
+            
+            result_33556561[0].push.apply(result_33556561[0], makeNimstrLit(" at "));;
+            add_33556419(result_33556561, 0, tempFrames_33556572[j_33556602].Field0);
+            result_33556561[0].push.apply(result_33556561[0], makeNimstrLit("\x0A"));;
+            res_486539472 -= 1;
+          }
+      } while (false);
+    } while (false);
+
+  return result_33556561[0];
+
+}
+
+function rawWriteStackTrace_33556631() {
+  var result_33556632 = [];
+
+    if (!((framePtr == null))) {
+    result_33556632 = nimCopy(null, (makeNimstrLit("Traceback (most recent call last)\x0A") || []).concat(auxWriteStackTrace_33556559(framePtr) || []), NTI33554439);
+    }
+    else {
+      result_33556632 = nimCopy(null, makeNimstrLit("No stack traceback available\x0A"), NTI33554439);
+    }
+    
+
+  return result_33556632;
+
+}
+
+function unhandledException(e_33556663) {
+    var buf_33556664 = [[]];
+    if (!(((e_33556663.message).length == 0))) {
+    buf_33556664[0].push.apply(buf_33556664[0], makeNimstrLit("Error: unhandled exception: "));;
+    buf_33556664[0].push.apply(buf_33556664[0], e_33556663.message);;
+    }
+    else {
+    buf_33556664[0].push.apply(buf_33556664[0], makeNimstrLit("Error: unhandled exception"));;
+    }
+    
+    buf_33556664[0].push.apply(buf_33556664[0], makeNimstrLit(" ["));;
+    add_33556419(buf_33556664, 0, e_33556663.name);
+    buf_33556664[0].push.apply(buf_33556664[0], makeNimstrLit("]\x0A"));;
+    buf_33556664[0].push.apply(buf_33556664[0], rawWriteStackTrace_33556631());;
+    var cbuf_33556665 = toJSStr(buf_33556664[0]);
+    framePtr = null;
+      if (typeof(Error) !== "undefined") {
+    throw new Error(cbuf_33556665);
+  }
+  else {
+    throw cbuf_33556665;
+  }
+  
 
   
 }
 
-function parseSaturatedNatural_973078844(s_973078845, b_973078846, b_973078846_Idx, start_973078847) {
-      var Temporary1;
-          var Temporary4;
+function raiseOverflow() {
+    raiseException({message: makeNimstrLit("over- or underflow"), parent: null, m_type: NTI33555122, name: null, trace: [], up: null}, "OverflowDefect");
 
-  var result_973078848 = 0;
-
-  var F = {procname: "parseutils.parseSaturatedNatural", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/parseutils.nim", line: 0};
-  framePtr = F;
-    F.line = 505;
-    var i_973078849 = start_973078847;
-    if (((i_973078849 < (s_973078845).length) && (s_973078845[chckIndx(i_973078849, 0, (s_973078845).length - 1)] == 43))) {
-    F.line = 506;
-    i_973078849 = addInt(i_973078849, 1);
-    }
-    
-      if (!(i_973078849 < (s_973078845).length)) Temporary1 = false; else {        Temporary1 = (ConstSet6[s_973078845[chckIndx(i_973078849, 0, (s_973078845).length - 1)]] != undefined);      }    if (Temporary1) {
-    F.line = 508;
-    b_973078846[b_973078846_Idx] = 0;
-    Label2: do {
-      F.line = 509;
-        Label3: while (true) {
-          if (!(i_973078849 < (s_973078845).length)) Temporary4 = false; else {            Temporary4 = (ConstSet7[s_973078845[chckIndx(i_973078849, 0, (s_973078845).length - 1)]] != undefined);          }        if (!Temporary4) break Label3;
-          F.line = 510;
-          var c_973078868 = subInt(s_973078845[chckIndx(i_973078849, 0, (s_973078845).length - 1)], 48);
-          if ((b_973078846[b_973078846_Idx] <= divInt(subInt(2147483647, c_973078868), 10))) {
-          F.line = 512;
-          b_973078846[b_973078846_Idx] = addInt(mulInt(b_973078846[b_973078846_Idx], 10), c_973078868);
-          }
-          else {
-            F.line = 514;
-            b_973078846[b_973078846_Idx] = 2147483647;
-          }
-          
-          F.line = 515;
-          i_973078849 = addInt(i_973078849, 1);
-          Label5: do {
-            F.line = 516;
-              Label6: while (true) {
-              if (!((i_973078849 < (s_973078845).length) && (s_973078845[chckIndx(i_973078849, 0, (s_973078845).length - 1)] == 95))) break Label6;
-                F.line = 516;
-                i_973078849 = addInt(i_973078849, 1);
-              }
-          } while (false);
-        }
-    } while (false);
-    F.line = 517;
-    result_973078848 = subInt(i_973078849, start_973078847);
-    }
-    
-  framePtr = F.prev;
-
-  return result_973078848;
-
+  
 }
 
-function HEX5BHEX5D_989858944(s_989858947, x_989858948) {
-  var result_989858949 = [];
+function checkOverflowInt(a_33556938) {
+        if (a_33556938 > 2147483647 || a_33556938 < -2147483648) raiseOverflow();
+  
+
+  
+}
+
+function HEX5BHEX5D_486539330(s_486539333, x_486539334) {
+  var result_486539335 = [];
 
   var F = {procname: "[].[]", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system.nim", line: 0};
   framePtr = F;
     F.line = 2549;
-    var a_989858951 = x_989858948.a;
+    var a_486539337 = x_486539334.a;
     F.line = 2550;
-    var L_989858953 = addInt(subInt(subInt((s_989858947).length, x_989858948.b), a_989858951), 1);
+    var L_486539339 = addInt(subInt(subInt((s_486539333).length, x_486539334.b), a_486539337), 1);
     F.line = 2551;
-    result_989858949 = nimCopy(null, mnewString(chckRange(L_989858953, 0, 2147483647)), NTI33554439);
+    result_486539335 = nimCopy(null, mnewString(chckRange(L_486539339, 0, 2147483647)), NTI33554439);
     Label1: do {
       F.line = 2552;
-      var i_989858958 = 0;
+      var i_486539344 = 0;
       F.line = 119;
-      var i_469762186 = 0;
+      var i_486539486 = 0;
       Label2: do {
         F.line = 120;
           Label3: while (true) {
-          if (!(i_469762186 < L_989858953)) break Label3;
+          if (!(i_486539486 < L_486539339)) break Label3;
             F.line = 2552;
-            i_989858958 = i_469762186;
+            i_486539344 = i_486539486;
             F.line = 2552;
-            result_989858949[chckIndx(i_989858958, 0, (result_989858949).length - 1)] = s_989858947[chckIndx(addInt(i_989858958, a_989858951), 0, (s_989858947).length - 1)];
+            result_486539335[chckIndx(i_486539344, 0, (result_486539335).length - 1)] = s_486539333[chckIndx(addInt(i_486539344, a_486539337), 0, (s_486539333).length - 1)];
             F.line = 122;
-            i_469762186 = addInt(i_469762186, 1);
+            i_486539486 = addInt(i_486539486, 1);
           }
       } while (false);
     } while (false);
   framePtr = F.prev;
 
-  return result_989858949;
+  return result_486539335;
 
 }
 
-function HEX2EHEX2E_989858917(a_989858920, b_989858921) {
-  var result_989858924 = ({a: 0, b: 0});
+function HEX5BHEX5D_486539314(s_486539317, i_486539318) {
+  var result_486539319 = null;
+
+  var F = {procname: "[].[]", prev: framePtr, filename: "/home/runner/Quill/src/quill/utils.nim", line: 0};
+  framePtr = F;
+    F.line = 3;
+    result_486539319 = toJSStr(HEX5BHEX5D_486539330(cstrToNimstr(s_486539317), i_486539318));
+  framePtr = F.prev;
+
+  return result_486539319;
+
+}
+
+function HEX2EHEX2E_486539293(a_486539296, b_486539297) {
+  var result_486539300 = ({a: 0, b: 0});
 
   var F = {procname: ".....", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system.nim", line: 0};
   framePtr = F;
     F.line = 512;
-    result_989858924 = nimCopy(result_989858924, {a: a_989858920, b: b_989858921}, NTI989866114);
+    result_486539300 = nimCopy(result_486539300, {a: a_486539296, b: b_486539297}, NTI486539289);
   framePtr = F.prev;
 
-  return result_989858924;
+  return result_486539300;
 
 }
 
-function parseStandardFormatSpecifier_637534266(s_637534267, start_637534268, ignoreUnknownSuffix_637534269) {
-      var Temporary1;
-      var Temporary2;
-      var Temporary3;
-
-  var result_637534270 = ({fill: 0, align: 0, sign: 0, alternateForm: false, padWithZero: false, minimumWidth: 0, precision: 0, typ: 0, endPosition: 0});
-
-  var F = {procname: "strformat.parseStandardFormatSpecifier", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-  framePtr = F;
-    F.line = 430;
-    result_637534270.fill = 32;
-    F.line = 431;
-    result_637534270.align = 0;
-    F.line = 432;
-    result_637534270.sign = 45;
-    F.line = 433;
-    var i_637534272 = start_637534268;
-    if (((addInt(i_637534272, 1) < (s_637534267).length) && (ConstSet2[s_637534267[chckIndx(addInt(i_637534272, 1), 0, (s_637534267).length - 1)]] != undefined))) {
-    F.line = 435;
-    result_637534270.fill = s_637534267[chckIndx(i_637534272, 0, (s_637534267).length - 1)];
-    F.line = 436;
-    result_637534270.align = s_637534267[chckIndx(addInt(i_637534272, 1), 0, (s_637534267).length - 1)];
-    F.line = 437;
-    i_637534272 = addInt(i_637534272, 2);
-    }
-    else {
-    if (((i_637534272 < (s_637534267).length) && (ConstSet3[s_637534267[chckIndx(i_637534272, 0, (s_637534267).length - 1)]] != undefined))) {
-    F.line = 439;
-    result_637534270.align = s_637534267[chckIndx(i_637534272, 0, (s_637534267).length - 1)];
-    F.line = 440;
-    i_637534272 = addInt(i_637534272, 1);
-    }
-    }
-    if (((i_637534272 < (s_637534267).length) && (ConstSet4[s_637534267[chckIndx(i_637534272, 0, (s_637534267).length - 1)]] != undefined))) {
-    F.line = 443;
-    result_637534270.sign = s_637534267[chckIndx(i_637534272, 0, (s_637534267).length - 1)];
-    F.line = 444;
-    i_637534272 = addInt(i_637534272, 1);
-    }
-    
-    if (((i_637534272 < (s_637534267).length) && (s_637534267[chckIndx(i_637534272, 0, (s_637534267).length - 1)] == 35))) {
-    F.line = 447;
-    result_637534270.alternateForm = true;
-    F.line = 448;
-    i_637534272 = addInt(i_637534272, 1);
-    }
-    
-      if (!((addInt(i_637534272, 1) < (s_637534267).length) && (s_637534267[chckIndx(i_637534272, 0, (s_637534267).length - 1)] == 48))) Temporary1 = false; else {        Temporary1 = (ConstSet5[s_637534267[chckIndx(addInt(i_637534272, 1), 0, (s_637534267).length - 1)]] != undefined);      }    if (Temporary1) {
-    F.line = 451;
-    result_637534270.padWithZero = true;
-    F.line = 452;
-    i_637534272 = addInt(i_637534272, 1);
-    }
-    
-    F.line = 454;
-    var parsedLength_637534309 = parseSaturatedNatural_973078844(s_637534267, result_637534270, "minimumWidth", i_637534272);
-    F.line = 455;
-    i_637534272 = addInt(i_637534272, parsedLength_637534309);
-    if (((i_637534272 < (s_637534267).length) && (s_637534267[chckIndx(i_637534272, 0, (s_637534267).length - 1)] == 46))) {
-    F.line = 457;
-    i_637534272 = addInt(i_637534272, 1);
-    F.line = 458;
-    var parsedLengthB_637534318 = parseSaturatedNatural_973078844(s_637534267, result_637534270, "precision", i_637534272);
-    F.line = 459;
-    i_637534272 = addInt(i_637534272, parsedLengthB_637534318);
-    }
-    else {
-      F.line = 461;
-      result_637534270.precision = -1;
-    }
-    
-      if (!(i_637534272 < (s_637534267).length)) Temporary2 = false; else {        Temporary2 = (ConstSet8[s_637534267[chckIndx(i_637534272, 0, (s_637534267).length - 1)]] != undefined);      }    if (Temporary2) {
-    F.line = 464;
-    result_637534270.typ = s_637534267[chckIndx(i_637534272, 0, (s_637534267).length - 1)];
-    F.line = 465;
-    i_637534272 = addInt(i_637534272, 1);
-    }
-    
-    F.line = 466;
-    result_637534270.endPosition = i_637534272;
-      if (!!((i_637534272 == (s_637534267).length))) Temporary3 = false; else {        Temporary3 = !(ignoreUnknownSuffix_637534269);      }    if (Temporary3) {
-    F.line = 468;
-    raiseException({message: (makeNimstrLit("invalid format string, cannot parse: ") || []).concat(HEX5BHEX5D_989858944(s_637534267, HEX2EHEX2E_989858917(i_637534272, 1)) || []), parent: null, m_type: NTI33555125, name: null, trace: [], up: null}, "ValueError");
-    }
-    
-  framePtr = F.prev;
-
-  return result_637534270;
-
-}
-
-function sysFatal_218103842(message_218103845) {
-  var F = {procname: "sysFatal.sysFatal", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system/fatal.nim", line: 0};
-  framePtr = F;
-    F.line = 54;
-    raiseException({message: nimCopy(null, message_218103845, NTI33554439), m_type: NTI33555124, parent: null, name: null, trace: [], up: null}, "AssertionDefect");
-  framePtr = F.prev;
-
-  
-}
-
-function raiseAssert_218103840(msg_218103841) {
-  var F = {procname: "assertions.raiseAssert", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system/assertions.nim", line: 0};
-  framePtr = F;
-    F.line = 28;
-    sysFatal_218103842(msg_218103841);
-  framePtr = F.prev;
-
-  
-}
-
-function failedAssertImpl_218103864(msg_218103865) {
-  var F = {procname: "assertions.failedAssertImpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system/assertions.nim", line: 0};
-  framePtr = F;
-    F.line = 38;
-    raiseAssert_218103840(msg_218103865);
-  framePtr = F.prev;
-
-  
-}
-
-function mkDigit_637534213(v_637534214, typ_637534215) {
-      var Temporary1;
-
-  var result_637534216 = [];
-
-  var F = {procname: "strformat.mkDigit", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-  framePtr = F;
-    if (!((v_637534214 < 26))) {
-    F.line = 320;
-    failedAssertImpl_218103864(makeNimstrLit("/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim(320, 9) `v < 26` "));
-    }
-    
-    if ((v_637534214 < 10)) {
-    F.line = 322;
-    result_637534216 = nimCopy(null, nimCharToStr(chckRange(addInt(48, v_637534214), 0, 255)), NTI33554439);
-    }
-    else {
-      F.line = 324;
-      if ((typ_637534215 == 120)) {
-      Temporary1 = 97;
-      }
-      else {
-      Temporary1 = 65;
-      }
-      
-      result_637534216 = nimCopy(null, nimCharToStr(chckRange(subInt(addInt(Temporary1, v_637534214), 10), 0, 255)), NTI33554439);
-    }
-    
-  framePtr = F.prev;
-
-  return result_637534216;
-
-}
-
-function nsuRepeatChar(c_671089659, count_671089660) {
-  var result_671089661 = [];
-
-  var F = {procname: "strutils.repeat", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strutils.nim", line: 0};
-  framePtr = F;
-    F.line = 1263;
-    result_671089661 = nimCopy(null, mnewString(count_671089660), NTI33554439);
-    Label1: do {
-      F.line = 1264;
-      var i_671089666 = 0;
-      F.line = 75;
-      var colontmp__469762198 = 0;
-      F.line = 1264;
-      colontmp__469762198 = subInt(count_671089660, 1);
-      F.line = 90;
-      var res_469762199 = 0;
-      Label2: do {
-        F.line = 91;
-          Label3: while (true) {
-          if (!(res_469762199 <= colontmp__469762198)) break Label3;
-            F.line = 1264;
-            i_671089666 = res_469762199;
-            F.line = 1264;
-            result_671089661[chckIndx(i_671089666, 0, (result_671089661).length - 1)] = c_671089659;
-            F.line = 93;
-            res_469762199 = addInt(res_469762199, 1);
-          }
-      } while (false);
-    } while (false);
-  framePtr = F.prev;
-
-  return result_671089661;
-
-}
-
-function formatInt_469762094(n_469762096, radix_469762097, spec_469762098) {
-    var Temporary1;
-    var Temporary8;
-
-  var result_469762099 = [];
-
-  var F = {procname: "formatInt.formatInt", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-  framePtr = F;
-    F.line = 366;
-    var n_469762102 = n_469762096;
-    F.line = 367;
-    var negative_469762103 = (n_469762102 < 0);
-    F.line = 368;
-    if (negative_469762103) {
-    Temporary1 = ((~(n_469762102) + 1) );
-    }
-    else {
-    Temporary1 = n_469762102;
-    }
-    
-    var v_469762104 = Temporary1;
-    F.line = 375;
-    var xx_469762105 = [];
-    if (spec_469762098.alternateForm) {
-    F.line = 377;
-    switch (spec_469762098.typ) {
-    case 88:
-      F.line = 378;
-      xx_469762105 = nimCopy(null, makeNimstrLit("0x"), NTI33554439);
-      break;
-    case 120:
-      F.line = 379;
-      xx_469762105 = nimCopy(null, makeNimstrLit("0x"), NTI33554439);
-      break;
-    case 98:
-      F.line = 380;
-      xx_469762105 = nimCopy(null, makeNimstrLit("0b"), NTI33554439);
-      break;
-    case 111:
-      F.line = 381;
-      xx_469762105 = nimCopy(null, makeNimstrLit("0o"), NTI33554439);
-      break;
-    default: 
-      break;
-    }
-    }
-    
-    if ((v_469762104 == 0)) {
-    F.line = 385;
-    result_469762099 = nimCopy(null, makeNimstrLit("0"), NTI33554439);
-    }
-    else {
-      F.line = 387;
-      result_469762099 = nimCopy(null, [], NTI33554439);
-      Label2: do {
-        F.line = 388;
-          Label3: while (true) {
-          if (!(0 < v_469762104)) break Label3;
-            F.line = 389;
-            var d_469762106 = (v_469762104 % radix_469762097);
-            F.line = 390;
-            v_469762104 = Math.trunc(((v_469762104 / radix_469762097) ));
-            F.line = 391;
-            result_469762099.push.apply(result_469762099, mkDigit_637534213(chckRange(d_469762106, -2147483648, 2147483647), spec_469762098.typ));;
-          }
-      } while (false);
-      Label4: do {
-        F.line = 392;
-        var idx_469762111 = 0;
-        F.line = 117;
-        var colontmp__469762190 = 0;
-        F.line = 392;
-        colontmp__469762190 = divInt((result_469762099).length, 2);
-        F.line = 119;
-        var i_469762191 = 0;
-        Label5: do {
-          F.line = 120;
-            Label6: while (true) {
-            if (!(i_469762191 < colontmp__469762190)) break Label6;
-              F.line = 392;
-              idx_469762111 = i_469762191;
-              F.line = 392;
-              var Temporary7 = result_469762099[chckIndx(idx_469762111, 0, (result_469762099).length - 1)]; result_469762099[chckIndx(idx_469762111, 0, (result_469762099).length - 1)] = result_469762099[chckIndx(subInt(subInt((result_469762099).length, idx_469762111), 1), 0, (result_469762099).length - 1)]; result_469762099[chckIndx(subInt(subInt((result_469762099).length, idx_469762111), 1), 0, (result_469762099).length - 1)] = Temporary7;              F.line = 122;
-              i_469762191 = addInt(i_469762191, 1);
-            }
-        } while (false);
-      } while (false);
-    }
-    
-    if (spec_469762098.padWithZero) {
-    F.line = 395;
-    if (negative_469762103) Temporary8 = true; else {      Temporary8 = !((spec_469762098.sign == 45));    }    var sign_469762116 = Temporary8;
-    F.line = 396;
-    var toFill_469762120 = subInt(subInt(subInt(spec_469762098.minimumWidth, (result_469762099).length), (xx_469762105).length), (sign_469762116 ? 1 : 0));
-    if ((0 < toFill_469762120)) {
-    F.line = 398;
-    result_469762099 = nimCopy(null, (nsuRepeatChar(48, chckRange(toFill_469762120, 0, 2147483647)) || []).concat(result_469762099 || []), NTI33554439);
-    }
-    
-    }
-    
-    if (negative_469762103) {
-    F.line = 401;
-    result_469762099 = nimCopy(null, (makeNimstrLit("-") || []).concat(xx_469762105 || [],result_469762099 || []), NTI33554439);
-    }
-    else {
-    if (!((spec_469762098.sign == 45))) {
-    F.line = 403;
-    result_469762099 = nimCopy(null, [spec_469762098.sign].concat(xx_469762105 || [],result_469762099 || []), NTI33554439);
-    }
-    else {
-      F.line = 405;
-      result_469762099 = nimCopy(null, (xx_469762105 || []).concat(result_469762099 || []), NTI33554439);
-    }
-    }
-    if ((spec_469762098.align == 60)) {
-    Label9: do {
-      F.line = 408;
-      var i_469762125 = 0;
-      F.line = 117;
-      var colontmp__469762194 = 0;
-      F.line = 408;
-      colontmp__469762194 = (result_469762099).length;
-      F.line = 119;
-      var i_469762195 = colontmp__469762194;
-      Label10: do {
-        F.line = 120;
-          Label11: while (true) {
-          if (!(i_469762195 < spec_469762098.minimumWidth)) break Label11;
-            F.line = 408;
-            i_469762125 = i_469762195;
-            F.line = 408;
-            addChar(result_469762099, spec_469762098.fill);;
-            F.line = 122;
-            i_469762195 = addInt(i_469762195, 1);
-          }
-      } while (false);
-    } while (false);
-    }
-    else {
-      F.line = 411;
-      var toFill_469762126 = subInt(spec_469762098.minimumWidth, (result_469762099).length);
-      if ((spec_469762098.align == 94)) {
-      F.line = 413;
-      var half_469762127 = divInt(toFill_469762126, 2);
-      F.line = 414;
-      result_469762099 = nimCopy(null, (nsuRepeatChar(spec_469762098.fill, chckRange(half_469762127, 0, 2147483647)) || []).concat(result_469762099 || [],nsuRepeatChar(spec_469762098.fill, chckRange(subInt(toFill_469762126, half_469762127), 0, 2147483647)) || []), NTI33554439);
-      }
-      else {
-        if ((0 < toFill_469762126)) {
-        F.line = 417;
-        result_469762099 = nimCopy(null, (nsuRepeatChar(spec_469762098.fill, chckRange(toFill_469762126, 0, 2147483647)) || []).concat(result_469762099 || []), NTI33554439);
-        }
-        
-      }
-      
-    }
-    
-  framePtr = F.prev;
-
-  return result_469762099;
-
-}
-
-function formatValue_469762086(result_469762088, result_469762088_Idx, value_469762089, specifier_469762090) {
-  var F = {procname: "formatValue.formatValue", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-  framePtr = F;
-  BeforeRet: do {
-    if (((specifier_469762090).length == 0)) {
-    F.line = 477;
-    result_469762088[result_469762088_Idx].push.apply(result_469762088[result_469762088_Idx], HEX24_335544323(value_469762089));;
-    F.line = 478;
-    break BeforeRet;
-    }
-    
-    F.line = 479;
-    var spec_469762091 = parseStandardFormatSpecifier_637534266(specifier_469762090, 0, false);
-    F.line = 480;
-    var radix_469762092 = 10;
-    F.line = 481;
-    switch (spec_469762091.typ) {
-    case 120:
-    case 88:
-      F.line = 482;
-      radix_469762092 = 16;
-      break;
-    case 100:
-    case 0:
-      break;
-    case 98:
-      F.line = 484;
-      radix_469762092 = 2;
-      break;
-    case 111:
-      F.line = 485;
-      radix_469762092 = 8;
-      break;
-    default: 
-      F.line = 487;
-      raiseException({message: (makeNimstrLit("invalid type in format string for number, expected one  of \'x\', \'X\', \'b\', \'d\', \'o\' but got: ") || []).concat([spec_469762091.typ]), parent: null, m_type: NTI33555125, name: null, trace: [], up: null}, "ValueError");
-      break;
-    }
-    F.line = 490;
-    result_469762088[result_469762088_Idx].push.apply(result_469762088[result_469762088_Idx], formatInt_469762094(value_469762089, radix_469762092, spec_469762091));;
-  } while (false);
-  framePtr = F.prev;
-
-  
-}
-
-function genRandomColor_469762055() {
-  var result_469762056 = [];
-
-  var F = {procname: "main.genRandomColor", prev: framePtr, filename: "/home/runner/Quill/tests/main.nim", line: 0};
-  framePtr = F;
-  BeforeRet: do {
-    F.line = 6;
-    var a_469762061 = Math.round((Math.random() * 255.0));
-    F.line = 7;
-    var b_469762066 = Math.round((Math.random() * 255.0));
-    F.line = 8;
-    var c_469762071 = Math.round((Math.random() * 255.0));
-    F.line = 9;
-    F.line = 9;
-    var fmtRes_469762080 = [mnewString(0)];
-    F.line = 9;
-    fmtRes_469762080[0].push.apply(fmtRes_469762080[0], makeNimstrLit("rgb("));;
-    F.line = 9;
-    formatValue_469762086(fmtRes_469762080, 0, a_469762061, []);
-    F.line = 9;
-    fmtRes_469762080[0].push.apply(fmtRes_469762080[0], makeNimstrLit(", "));;
-    F.line = 9;
-    formatValue_469762086(fmtRes_469762080, 0, b_469762066, []);
-    F.line = 9;
-    fmtRes_469762080[0].push.apply(fmtRes_469762080[0], makeNimstrLit(", "));;
-    F.line = 9;
-    formatValue_469762086(fmtRes_469762080, 0, c_469762071, []);
-    F.line = 9;
-    fmtRes_469762080[0].push.apply(fmtRes_469762080[0], makeNimstrLit(")"));;
-    result_469762056 = nimCopy(null, fmtRes_469762080[0], NTI33554439);
-    break BeforeRet;
-  } while (false);
-  framePtr = F.prev;
-
-  return result_469762056;
-
-}
-
-function nucruneLen(s_989855754) {
-  var result_989855755 = 0;
-
-  var F = {procname: "unicode.runeLen", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-  framePtr = F;
-    F.line = 42;
-    result_989855755 = 0;
-    F.line = 43;
-    var i_989855756 = 0;
-    Label1: do {
-      F.line = 44;
-        Label2: while (true) {
-        if (!(i_989855756 < (s_989855754).length)) break Label2;
-          if ((s_989855754[chckIndx(i_989855756, 0, (s_989855754).length - 1)] <= 127)) {
-          F.line = 45;
-          i_989855756 = addInt(i_989855756, 1);
-          }
-          else {
-          if (((s_989855754[chckIndx(i_989855756, 0, (s_989855754).length - 1)] >>> 5) == 6)) {
-          F.line = 46;
-          i_989855756 = addInt(i_989855756, 2);
-          }
-          else {
-          if (((s_989855754[chckIndx(i_989855756, 0, (s_989855754).length - 1)] >>> 4) == 14)) {
-          F.line = 47;
-          i_989855756 = addInt(i_989855756, 3);
-          }
-          else {
-          if (((s_989855754[chckIndx(i_989855756, 0, (s_989855754).length - 1)] >>> 3) == 30)) {
-          F.line = 48;
-          i_989855756 = addInt(i_989855756, 4);
-          }
-          else {
-          if (((s_989855754[chckIndx(i_989855756, 0, (s_989855754).length - 1)] >>> 2) == 62)) {
-          F.line = 49;
-          i_989855756 = addInt(i_989855756, 5);
-          }
-          else {
-          if (((s_989855754[chckIndx(i_989855756, 0, (s_989855754).length - 1)] >>> 1) == 126)) {
-          F.line = 50;
-          i_989855756 = addInt(i_989855756, 6);
-          }
-          else {
-            F.line = 51;
-          i_989855756 = addInt(i_989855756, 1);
-          }
-          }}}}}
-          F.line = 52;
-          result_989855755 = addInt(result_989855755, 1);
-        }
-    } while (false);
-  framePtr = F.prev;
-
-  return result_989855755;
-
-}
-
-function runeLenAt_989855809(s_989855810, i_989855811) {
-  var result_989855812 = 0;
-
-  var F = {procname: "unicode.runeLenAt", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-  framePtr = F;
-    if ((s_989855810[chckIndx(i_989855811, 0, (s_989855810).length - 1)] <= 127)) {
-    F.line = 64;
-    result_989855812 = 1;
-    }
-    else {
-    if (((s_989855810[chckIndx(i_989855811, 0, (s_989855810).length - 1)] >>> 5) == 6)) {
-    F.line = 65;
-    result_989855812 = 2;
-    }
-    else {
-    if (((s_989855810[chckIndx(i_989855811, 0, (s_989855810).length - 1)] >>> 4) == 14)) {
-    F.line = 66;
-    result_989855812 = 3;
-    }
-    else {
-    if (((s_989855810[chckIndx(i_989855811, 0, (s_989855810).length - 1)] >>> 3) == 30)) {
-    F.line = 67;
-    result_989855812 = 4;
-    }
-    else {
-    if (((s_989855810[chckIndx(i_989855811, 0, (s_989855810).length - 1)] >>> 2) == 62)) {
-    F.line = 68;
-    result_989855812 = 5;
-    }
-    else {
-    if (((s_989855810[chckIndx(i_989855811, 0, (s_989855810).length - 1)] >>> 1) == 126)) {
-    F.line = 69;
-    result_989855812 = 6;
-    }
-    else {
-      F.line = 70;
-      result_989855812 = 1;
-    }
-    }}}}}
-  framePtr = F.prev;
-
-  return result_989855812;
-
-}
-
-function runeOffset_989856381(s_989856382, pos_989856383, start_989856384) {
-  var result_989856385 = 0;
-
-  var F = {procname: "unicode.runeOffset", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
-  framePtr = F;
-  BeforeRet: do {
-    F.line = 321;
-    var i_989856386 = 0;
-    F.line = 322;
-    var o_989856387 = start_989856384;
-    Label1: do {
-      F.line = 323;
-        Label2: while (true) {
-        if (!(i_989856386 < pos_989856383)) break Label2;
-          F.line = 324;
-          o_989856387 = addInt(o_989856387, chckRange(runeLenAt_989855809(s_989856382, o_989856387), 0, 2147483647));
-          if (((s_989856382).length <= o_989856387)) {
-          F.line = 326;
-          result_989856385 = -1;
-          break BeforeRet;
-          }
-          
-          F.line = 327;
-          i_989856386 = addInt(i_989856386, 1);
-        }
-    } while (false);
-    F.line = 328;
-    result_989856385 = o_989856387;
-    break BeforeRet;
-  } while (false);
-  framePtr = F.prev;
-
-  return result_989856385;
-
-}
-
-function validateUtf8_989856021(s_989856022) {
-            var Temporary3;
-            var Temporary4;
+function getIndent_486539285(str_486539286) {
+              var Temporary4;
             var Temporary5;
-            var Temporary6;
-            var Temporary7;
-            var Temporary8;
 
-  var result_989856023 = 0;
+  var result_486539287 = null;
 
-  var F = {procname: "unicode.validateUtf8", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/unicode.nim", line: 0};
+  var F = {procname: "main.getIndent", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
   framePtr = F;
-  BeforeRet: do {
-    F.line = 174;
-    var i_989856024 = 0;
-    F.line = 175;
-    var L_989856025 = (s_989856022).length;
+    F.line = 20;
+    result_486539287 = "";
     Label1: do {
-      F.line = 176;
-        Label2: while (true) {
-        if (!(i_989856024 < L_989856025)) break Label2;
-          if ((s_989856022[chckIndx(i_989856024, 0, (s_989856022).length - 1)] <= 127)) {
-          F.line = 178;
-          i_989856024 = addInt(i_989856024, 1);
+      F.line = 21;
+      var c_486539288 = 0;
+      F.line = 70;
+      var iHEX60gensym6_486539482 = 0;
+      F.line = 71;
+      var nHEX60gensym6_486539483 = ((str_486539286) == null ? 0 : (str_486539286).length);
+      Label2: do {
+        F.line = 75;
+          Label3: while (true) {
+          if (!(iHEX60gensym6_486539482 < nHEX60gensym6_486539483)) break Label3;
+            F.line = 21;
+            c_486539288 = str_486539286.charCodeAt(chckIndx(iHEX60gensym6_486539482, 0, (str_486539286).length - 1));
+            if (!((ConstSet2[c_486539288] != undefined))) {
+              if (!(c_486539288 == 10)) Temporary4 = false; else {                Temporary4 = (1 < ((result_486539287) == null ? 0 : (result_486539287).length));              }            if (Temporary4) {
+            F.line = 24;
+            result_486539287 = HEX5BHEX5D_486539314(result_486539287, HEX2EHEX2E_486539293(0, 3));
+            }
+            
+            F.line = 25;
+            break Label1;
+            }
+            
+            F.line = 21;
+            if (null != (Temporary5 = String.fromCharCode(c_486539288), Temporary5)) { if (null == result_486539287) result_486539287 = Temporary5; else result_486539287 += Temporary5; };
+            F.line = 74;
+            iHEX60gensym6_486539482 = addInt(iHEX60gensym6_486539482, 1);
           }
-          else {
-          if (((s_989856022[chckIndx(i_989856024, 0, (s_989856022).length - 1)] >>> 5) == 6)) {
-          if ((s_989856022[chckIndx(i_989856024, 0, (s_989856022).length - 1)] < 194)) {
-          F.line = 180;
-          result_989856023 = i_989856024;
-          break BeforeRet;
-          }
-          
-            if (!(addInt(i_989856024, 1) < L_989856025)) Temporary3 = false; else {              Temporary3 = ((s_989856022[chckIndx(addInt(i_989856024, 1), 0, (s_989856022).length - 1)] >>> 6) == 2);            }          if (Temporary3) {
-          F.line = 181;
-          i_989856024 = addInt(i_989856024, 2);
-          }
-          else {
-            F.line = 182;
-            result_989856023 = i_989856024;
-            break BeforeRet;
-          }
-          
-          }
-          else {
-          if (((s_989856022[chckIndx(i_989856024, 0, (s_989856022).length - 1)] >>> 4) == 14)) {
-            if (!(addInt(i_989856024, 2) < L_989856025)) Temporary5 = false; else {              Temporary5 = ((s_989856022[chckIndx(addInt(i_989856024, 1), 0, (s_989856022).length - 1)] >>> 6) == 2);            }            if (!Temporary5) Temporary4 = false; else {              Temporary4 = ((s_989856022[chckIndx(addInt(i_989856024, 2), 0, (s_989856022).length - 1)] >>> 6) == 2);            }          if (Temporary4) {
-          F.line = 185;
-          i_989856024 = addInt(i_989856024, 3);
-          }
-          else {
-            F.line = 186;
-            result_989856023 = i_989856024;
-            break BeforeRet;
-          }
-          
-          }
-          else {
-          if (((s_989856022[chckIndx(i_989856024, 0, (s_989856022).length - 1)] >>> 3) == 30)) {
-            if (!(addInt(i_989856024, 3) < L_989856025)) Temporary8 = false; else {              Temporary8 = ((s_989856022[chckIndx(addInt(i_989856024, 1), 0, (s_989856022).length - 1)] >>> 6) == 2);            }            if (!Temporary8) Temporary7 = false; else {              Temporary7 = ((s_989856022[chckIndx(addInt(i_989856024, 2), 0, (s_989856022).length - 1)] >>> 6) == 2);            }            if (!Temporary7) Temporary6 = false; else {              Temporary6 = ((s_989856022[chckIndx(addInt(i_989856024, 3), 0, (s_989856022).length - 1)] >>> 6) == 2);            }          if (Temporary6) {
-          F.line = 191;
-          i_989856024 = addInt(i_989856024, 4);
-          }
-          else {
-            F.line = 192;
-            result_989856023 = i_989856024;
-            break BeforeRet;
-          }
-          
-          }
-          else {
-            F.line = 194;
-            result_989856023 = i_989856024;
-            break BeforeRet;
-          }
-          }}}
-        }
+      } while (false);
     } while (false);
-    F.line = 195;
-    result_989856023 = -1;
-    break BeforeRet;
-  } while (false);
   framePtr = F.prev;
 
-  return result_989856023;
+  return result_486539287;
 
 }
 
-function alignString_637534228(s_637534229, minimumWidth_637534230, align_637534231, fill_637534232) {
-      var Temporary1;
-
-  var result_637534233 = [];
-
-  var F = {procname: "strformat.alignString", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-  framePtr = F;
-    if ((minimumWidth_637534230 == 0)) {
-    F.line = 331;
-    result_637534233 = nimCopy(null, s_637534229, NTI33554439);
-    }
-    else {
-      F.line = 333;
-      if ((validateUtf8_989856021(s_637534229) == -1)) {
-      Temporary1 = nucruneLen(s_637534229);
-      }
-      else {
-      Temporary1 = (s_637534229).length;
-      }
-      
-      var sRuneLen_637534234 = Temporary1;
-      F.line = 334;
-      var toFill_637534235 = subInt(minimumWidth_637534230, sRuneLen_637534234);
-      if ((toFill_637534235 <= 0)) {
-      F.line = 336;
-      result_637534233 = nimCopy(null, s_637534229, NTI33554439);
-      }
-      else {
-      if (((align_637534231 == 60) || (align_637534231 == 0))) {
-      F.line = 338;
-      result_637534233 = nimCopy(null, (s_637534229 || []).concat(nsuRepeatChar(fill_637534232, chckRange(toFill_637534235, 0, 2147483647)) || []), NTI33554439);
-      }
-      else {
-      if ((align_637534231 == 94)) {
-      F.line = 340;
-      var half_637534236 = divInt(toFill_637534235, 2);
-      F.line = 341;
-      result_637534233 = nimCopy(null, (nsuRepeatChar(fill_637534232, chckRange(half_637534236, 0, 2147483647)) || []).concat(s_637534229 || [],nsuRepeatChar(fill_637534232, chckRange(subInt(toFill_637534235, half_637534236), 0, 2147483647)) || []), NTI33554439);
-      }
-      else {
-        F.line = 343;
-        result_637534233 = nimCopy(null, (nsuRepeatChar(fill_637534232, chckRange(toFill_637534235, 0, 2147483647)) || []).concat(s_637534229 || []), NTI33554439);
-      }
-      }}
-    }
-    
-  framePtr = F.prev;
-
-  return result_637534233;
-
-}
-
-function formatValue_637534370(result_637534371, result_637534371_Idx, value_637534372, specifier_637534373) {
-  var F = {procname: "strformat.formatValue", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/pure/strformat.nim", line: 0};
-  framePtr = F;
-    F.line = 553;
-    var spec_637534374 = parseStandardFormatSpecifier_637534266(specifier_637534373, 0, false);
-    F.line = 554;
-    var value_637534375 = nimCopy(null, value_637534372, NTI33554439);
-    F.line = 555;
-    switch (spec_637534374.typ) {
-    case 115:
-    case 0:
-      break;
-    default: 
-      F.line = 558;
-      raiseException({message: (makeNimstrLit("invalid type in format string for string, expected \'s\', but got ") || []).concat([spec_637534374.typ]), parent: null, m_type: NTI33555125, name: null, trace: [], up: null}, "ValueError");
-      break;
-    }
-    if (!((spec_637534374.precision == -1))) {
-    if ((spec_637534374.precision < nucruneLen(value_637534375))) {
-    F.line = 563;
-    (value_637534375.length = chckRange(runeOffset_989856381(value_637534375, chckRange(spec_637534374.precision, 0, 2147483647), 0), 0, 2147483647));
-    }
-    
-    }
-    
-    F.line = 564;
-    result_637534371[result_637534371_Idx].push.apply(result_637534371[result_637534371_Idx], alignString_637534228(value_637534375, spec_637534374.minimumWidth, spec_637534374.align, spec_637534374.fill));;
-  framePtr = F.prev;
-
-  
-}
-
-function HEX5BHEX5DHEX3D_956301372(parent_956301373, i_956301374, child_956301375) {
-  var F = {procname: "utils.[]=", prev: framePtr, filename: "/home/runner/Quill/src/quill/utils.nim", line: 0};
-  framePtr = F;
-    F.line = 49;
-    parent_956301373.replaceChild(child_956301375, parent_956301373.childNodes[i_956301374]);
-  framePtr = F.prev;
-
-  
-}
-
-function visualElement_603979856(q_603979857) {
-  var result_603979858 = null;
-
-  var F = {procname: "quill.visualElement", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
-  framePtr = F;
-    F.line = 152;
-    result_603979858 = q_603979857.internalElm.childNodes[0];
-  framePtr = F.prev;
-
-  return result_603979858;
-
-}
-
-function draw_603980186(q_603980187, q_603980187_Idx, n_603980188) {
-  var F = {procname: "quill.draw", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
-  framePtr = F;
-    F.line = 240;
-    HEX5BHEX5DHEX3D_956301372(visualElement_603979856(q_603980187[q_603980187_Idx]), q_603980187[q_603980187_Idx].current, n_603980188);
-  framePtr = F.prev;
-
-  
-}
-
-function text_603979859(q_603979860) {
-  var result_603979861 = null;
+function text_620757075(q_620757076) {
+  var result_620757077 = null;
 
   var F = {procname: "quill.text", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
   framePtr = F;
     F.line = 155;
-    result_603979861 = eventElement_603979853(q_603979860).value;
+    result_620757077 = eventElement_620757069(q_620757076).value;
   framePtr = F.prev;
 
-  return result_603979861;
+  return result_620757077;
 
 }
 
@@ -5749,114 +3810,157 @@ function insert_33557846(x_33557847, x_33557847_Idx, item_33557848, i_33557849) 
   
 }
 
-function insert_603980223(q_603980224, q_603980224_Idx, text_603980225) {
+function insert_620757430(q_620757431, q_620757431_Idx, text_620757432) {
   var F = {procname: "quill.insert", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
   framePtr = F;
+    F.line = 251;
+    var txt_620757433 = [cstrToNimstr(text_620757075(q_620757431[q_620757431_Idx]))];
     F.line = 252;
-    var txt_603980226 = [cstrToNimstr(text_603979859(q_603980224[q_603980224_Idx]))];
+    insert_33557846(txt_620757433, 0, cstrToNimstr(text_620757432), chckRange(eventElement_620757069(q_620757431[q_620757431_Idx]).selectionStart, 0, 2147483647));
     F.line = 253;
-    insert_33557846(txt_603980226, 0, cstrToNimstr(text_603980225), chckRange(eventElement_603979853(q_603980224[q_603980224_Idx]).selectionStart, 0, 2147483647));
-    F.line = 254;
-    textHEX3D_603979862(q_603980224, q_603980224_Idx, toJSStr(txt_603980226[0]));
+    textHEX3D_620757078(q_620757431, q_620757431_Idx, toJSStr(txt_620757433[0]));
   framePtr = F.prev;
 
   
 }
 
-function HEX5BHEX5D_603980192(s_603980194, i_603980195) {
-  var result_603980196 = null;
-  var result_603980196_Idx = 0;
+function HEX5BHEX5D_620757399(s_620757401, i_620757402) {
+  var result_620757403 = null;
+  var result_620757403_Idx = 0;
 
   var F = {procname: "[].[]", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system.nim", line: 0};
   framePtr = F;
     F.line = 2635;
-    result_603980196 = s_603980194; result_603980196_Idx = chckIndx(subInt((s_603980194).length, i_603980195), 0, (s_603980194).length - 1);
+    result_620757403 = s_620757401; result_620757403_Idx = chckIndx(subInt((s_620757401).length, i_620757402), 0, (s_620757401).length - 1);
   framePtr = F.prev;
 
-  return [result_603980196, result_603980196_Idx];
+  return [result_620757403, result_620757403_Idx];
 
 }
 
-function newSeq_603980066(len_603980068) {
-  var result_603980069 = [];
+function visualElement_620757072(q_620757073) {
+  var result_620757074 = null;
+
+  var F = {procname: "quill.visualElement", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
+  framePtr = F;
+    F.line = 152;
+    result_620757074 = q_620757073.internalElm.childNodes[0];
+  framePtr = F.prev;
+
+  return result_620757074;
+
+}
+
+function newSeq_620757282(len_620757284) {
+  var result_620757285 = [];
 
   var F = {procname: "newSeq.newSeq", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system.nim", line: 0};
   framePtr = F;
     F.line = 680;
-    result_603980069 = new Array(len_603980068); for (var i = 0 ; i < len_603980068 ; ++i) { result_603980069[i] = 0; }  framePtr = F.prev;
+    result_620757285 = new Array(len_620757284); for (var i = 0 ; i < len_620757284 ; ++i) { result_620757285[i] = 0; }  framePtr = F.prev;
 
-  return result_603980069;
+  return result_620757285;
 
 }
 
-function delete_603980112(x_603980114, x_603980114_Idx, i_603980115) {
+function delete_620757328(x_620757330, x_620757330_Idx, i_620757331) {
   var F = {procname: "delete.delete", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system.nim", line: 0};
   framePtr = F;
     F.line = 2160;
-    x_603980114[x_603980114_Idx].splice(i_603980115, 1);
+    x_620757330[x_620757330_Idx].splice(i_620757331, 1);
   framePtr = F.prev;
 
   
 }
 
-function HEX5BHEX5D_603979956(s_603979959, x_603979960) {
-  var result_603979961 = [];
+function sysFatal_218103842(message_218103845) {
+  var F = {procname: "sysFatal.sysFatal", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system/fatal.nim", line: 0};
+  framePtr = F;
+    F.line = 54;
+    raiseException({message: nimCopy(null, message_218103845, NTI33554439), m_type: NTI33555124, parent: null, name: null, trace: [], up: null}, "AssertionDefect");
+  framePtr = F.prev;
+
+  
+}
+
+function raiseAssert_218103840(msg_218103841) {
+  var F = {procname: "assertions.raiseAssert", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system/assertions.nim", line: 0};
+  framePtr = F;
+    F.line = 28;
+    sysFatal_218103842(msg_218103841);
+  framePtr = F.prev;
+
+  
+}
+
+function failedAssertImpl_218103864(msg_218103865) {
+  var F = {procname: "assertions.failedAssertImpl", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system/assertions.nim", line: 0};
+  framePtr = F;
+    F.line = 38;
+    raiseAssert_218103840(msg_218103865);
+  framePtr = F.prev;
+
+  
+}
+
+function HEX5BHEX5D_620757172(s_620757175, x_620757176) {
+  var result_620757177 = [];
 
   var F = {procname: "[].[]", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system.nim", line: 0};
   framePtr = F;
     F.line = 2549;
-    var a_603979963 = x_603979960.a;
+    var a_620757179 = x_620757176.a;
     F.line = 2550;
-    var L_603979965 = addInt(subInt(x_603979960.b, a_603979963), 1);
+    var L_620757181 = addInt(subInt(x_620757176.b, a_620757179), 1);
     F.line = 2551;
-    result_603979961 = nimCopy(null, mnewString(chckRange(L_603979965, 0, 2147483647)), NTI33554439);
+    result_620757177 = nimCopy(null, mnewString(chckRange(L_620757181, 0, 2147483647)), NTI33554439);
     Label1: do {
       F.line = 2552;
-      var i_603979970 = 0;
+      var i_620757186 = 0;
       F.line = 119;
-      var i_469762228 = 0;
+      var i_486539513 = 0;
       Label2: do {
         F.line = 120;
           Label3: while (true) {
-          if (!(i_469762228 < L_603979965)) break Label3;
+          if (!(i_486539513 < L_620757181)) break Label3;
             F.line = 2552;
-            i_603979970 = i_469762228;
+            i_620757186 = i_486539513;
             F.line = 2552;
-            result_603979961[chckIndx(i_603979970, 0, (result_603979961).length - 1)] = s_603979959[chckIndx(addInt(i_603979970, a_603979963), 0, (s_603979959).length - 1)];
+            result_620757177[chckIndx(i_620757186, 0, (result_620757177).length - 1)] = s_620757175[chckIndx(addInt(i_620757186, a_620757179), 0, (s_620757175).length - 1)];
             F.line = 122;
-            i_469762228 = addInt(i_469762228, 1);
+            i_486539513 = addInt(i_486539513, 1);
           }
       } while (false);
     } while (false);
   framePtr = F.prev;
 
-  return result_603979961;
+  return result_620757177;
 
 }
 
-function HEX5BHEX5D_603979940(s_603979943, i_603979944) {
-  var result_603979945 = null;
+function HEX5BHEX5D_620757156(s_620757159, i_620757160) {
+  var result_620757161 = null;
 
   var F = {procname: "[].[]", prev: framePtr, filename: "/home/runner/Quill/src/quill/utils.nim", line: 0};
   framePtr = F;
     F.line = 3;
-    result_603979945 = toJSStr(HEX5BHEX5D_603979956(cstrToNimstr(s_603979943), i_603979944));
+    result_620757161 = toJSStr(HEX5BHEX5D_620757172(cstrToNimstr(s_620757159), i_620757160));
   framePtr = F.prev;
 
-  return result_603979945;
+  return result_620757161;
 
 }
 
-function HEX2EHEX2E_603979912(a_603979915, b_603979916) {
-  var result_603979917 = ({a: 0, b: 0});
+function HEX2EHEX2E_620757128(a_620757131, b_620757132) {
+  var result_620757133 = ({a: 0, b: 0});
 
   var F = {procname: ".....", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system.nim", line: 0};
   framePtr = F;
     F.line = 512;
-    result_603979917 = nimCopy(result_603979917, {a: a_603979915, b: b_603979916}, NTI838860861);
+    result_620757133 = nimCopy(result_620757133, {a: a_620757131, b: b_620757132}, NTI822083645);
   framePtr = F.prev;
 
-  return result_603979917;
+  return result_620757133;
 
 }
 
@@ -6020,88 +4124,88 @@ function addEscapedChar_33557860(s_33557861, s_33557861_Idx, c_33557862) {
   
 }
 
-function addQuoted_603980028(s_603980030, s_603980030_Idx, x_603980031) {
+function addQuoted_620757244(s_620757246, s_620757246_Idx, x_620757247) {
   var F = {procname: "addQuoted.addQuoted", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system.nim", line: 0};
   framePtr = F;
     F.line = 2898;
-    s_603980030[s_603980030_Idx].push.apply(s_603980030[s_603980030_Idx], makeNimstrLit("\""));;
+    s_620757246[s_620757246_Idx].push.apply(s_620757246[s_620757246_Idx], makeNimstrLit("\""));;
     Label1: do {
       F.line = 2899;
-      var c_603980032 = 0;
+      var c_620757248 = 0;
       F.line = 70;
-      var iHEX60gensym6_469762237 = 0;
+      var iHEX60gensym6_486539521 = 0;
       F.line = 71;
-      var nHEX60gensym6_469762238 = ((x_603980031) == null ? 0 : (x_603980031).length);
+      var nHEX60gensym6_486539522 = ((x_620757247) == null ? 0 : (x_620757247).length);
       Label2: do {
         F.line = 75;
           Label3: while (true) {
-          if (!(iHEX60gensym6_469762237 < nHEX60gensym6_469762238)) break Label3;
+          if (!(iHEX60gensym6_486539521 < nHEX60gensym6_486539522)) break Label3;
             F.line = 2899;
-            c_603980032 = x_603980031.charCodeAt(chckIndx(iHEX60gensym6_469762237, 0, (x_603980031).length - 1));
-            if ((c_603980032 <= 127)) {
+            c_620757248 = x_620757247.charCodeAt(chckIndx(iHEX60gensym6_486539521, 0, (x_620757247).length - 1));
+            if ((c_620757248 <= 127)) {
             F.line = 2903;
-            addEscapedChar_33557860(s_603980030, s_603980030_Idx, c_603980032);
+            addEscapedChar_33557860(s_620757246, s_620757246_Idx, c_620757248);
             }
             else {
               F.line = 2905;
-            addChar(s_603980030[s_603980030_Idx], c_603980032);;
+            addChar(s_620757246[s_620757246_Idx], c_620757248);;
             }
             
             F.line = 74;
-            iHEX60gensym6_469762237 = addInt(iHEX60gensym6_469762237, 1);
+            iHEX60gensym6_486539521 = addInt(iHEX60gensym6_486539521, 1);
           }
       } while (false);
     } while (false);
     F.line = 2906;
-    s_603980030[s_603980030_Idx].push.apply(s_603980030[s_603980030_Idx], makeNimstrLit("\""));;
+    s_620757246[s_620757246_Idx].push.apply(s_620757246[s_620757246_Idx], makeNimstrLit("\""));;
   framePtr = F.prev;
 
   
 }
 
-function collectionToString_603979995(x_603979997, prefix_603979998, separator_603979999, suffix_603980000) {
-  var result_603980001 = [[]];
+function collectionToString_620757211(x_620757213, prefix_620757214, separator_620757215, suffix_620757216) {
+  var result_620757217 = [[]];
 
   var F = {procname: "collectionToString.collectionToString", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system/dollars.nim", line: 0};
   framePtr = F;
     F.line = 121;
-    result_603980001[0] = nimCopy(null, prefix_603979998, NTI33554439);
+    result_620757217[0] = nimCopy(null, prefix_620757214, NTI33554439);
     F.line = 122;
-    var firstElement_603980002 = true;
+    var firstElement_620757218 = true;
     Label1: do {
       F.line = 123;
-      var value_603980024 = null;
+      var value_620757240 = null;
       F.line = 235;
-      var i_469762232 = 0;
+      var i_486539517 = 0;
       F.line = 236;
-      var L_469762233 = (x_603979997).length;
+      var L_486539518 = (x_620757213).length;
       Label2: do {
         F.line = 237;
           Label3: while (true) {
-          if (!(i_469762232 < L_469762233)) break Label3;
+          if (!(i_486539517 < L_486539518)) break Label3;
             F.line = 123;
-            value_603980024 = x_603979997[i_469762232];
-            if (firstElement_603980002) {
+            value_620757240 = x_620757213[i_486539517];
+            if (firstElement_620757218) {
             F.line = 125;
-            firstElement_603980002 = false;
+            firstElement_620757218 = false;
             }
             else {
               F.line = 127;
-            result_603980001[0].push.apply(result_603980001[0], separator_603979999);;
+            result_620757217[0].push.apply(result_620757217[0], separator_620757215);;
             }
             
-            if ((value_603980024 == null)) {
+            if ((value_620757240 == null)) {
             F.line = 132;
-            result_603980001[0].push.apply(result_603980001[0], makeNimstrLit("nil"));;
+            result_620757217[0].push.apply(result_620757217[0], makeNimstrLit("nil"));;
             }
             else {
               F.line = 134;
-            addQuoted_603980028(result_603980001, 0, value_603980024);
+            addQuoted_620757244(result_620757217, 0, value_620757240);
             }
             
             F.line = 239;
-            i_469762232 += 1;
-            if (!(((x_603979997).length == L_469762233))) {
+            i_486539517 += 1;
+            if (!(((x_620757213).length == L_486539518))) {
             F.line = 240;
             failedAssertImpl_218103864(makeNimstrLit("/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system/iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
@@ -6110,67 +4214,67 @@ function collectionToString_603979995(x_603979997, prefix_603979998, separator_6
       } while (false);
     } while (false);
     F.line = 137;
-    result_603980001[0].push.apply(result_603980001[0], suffix_603980000);;
+    result_620757217[0].push.apply(result_620757217[0], suffix_620757216);;
   framePtr = F.prev;
 
-  return result_603980001[0];
+  return result_620757217[0];
 
 }
 
-function HEX24_603979991(x_603979993) {
-  var result_603979994 = [];
+function HEX24_620757207(x_620757209) {
+  var result_620757210 = [];
 
   var F = {procname: "$.$", prev: framePtr, filename: "/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system/dollars.nim", line: 0};
   framePtr = F;
     F.line = 148;
-    result_603979994 = nimCopy(null, collectionToString_603979995(x_603979993, makeNimstrLit("@["), makeNimstrLit(", "), makeNimstrLit("]")), NTI33554439);
+    result_620757210 = nimCopy(null, collectionToString_620757211(x_620757209, makeNimstrLit("@["), makeNimstrLit(", "), makeNimstrLit("]")), NTI33554439);
   framePtr = F.prev;
 
-  return result_603979994;
+  return result_620757210;
 
 }
 
-function dumpSectors_603979865(q_603979866) {
-  var result_603979867 = [];
+function dumpSectors_620757081(q_620757082) {
+  var result_620757083 = [];
 
   var F = {procname: "quill.dumpSectors", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
   framePtr = F;
   BeforeRet: do {
     F.line = 165;
-    var sectors_603979868 = nimCopy(null, q_603979866.sectors, NTI603979789);
+    var sectors_620757084 = nimCopy(null, q_620757082.sectors, NTI620757005);
     F.line = 166;
-    var v_603979869 = text_603979859(q_603979866);
+    var v_620757085 = text_620757075(q_620757082);
     F.line = 167;
-    var res_603979877 = newSeq_33556825(0);
+    var res_620757093 = newSeq_33556825(0);
     Label1: do {
       F.line = 168;
-      var i_603979910 = 0;
+      var i_620757126 = 0;
       F.line = 168;
-      var sect_603979911 = 0;
+      var sect_620757127 = 0;
       F.line = 168;
-      var i_469762224 = 0;
+      var i_486539509 = 0;
       F.line = 169;
-      var L_469762225 = (sectors_603979868).length;
+      var L_486539510 = (sectors_620757084).length;
       Label2: do {
         F.line = 170;
           Label3: while (true) {
-          if (!(i_469762224 < L_469762225)) break Label3;
+          if (!(i_486539509 < L_486539510)) break Label3;
             F.line = 168;
-            i_603979910 = i_469762224;
+            i_620757126 = i_486539509;
             F.line = 168;
-            sect_603979911 = sectors_603979868[chckIndx(i_469762224, 0, (sectors_603979868).length - 1)];
-            if ((i_603979910 == 0)) {
+            sect_620757127 = sectors_620757084[chckIndx(i_486539509, 0, (sectors_620757084).length - 1)];
+            if ((i_620757126 == 0)) {
             F.line = 170;
-            res_603979877.push(HEX5BHEX5D_603979940(v_603979869, HEX2EHEX2E_603979912(0, subInt(sect_603979911, 1))));;
+            res_620757093.push(HEX5BHEX5D_620757156(v_620757085, HEX2EHEX2E_620757128(0, subInt(sect_620757127, 1))));;
             }
             else {
               F.line = 172;
-            res_603979877.push(HEX5BHEX5D_603979940(v_603979869, HEX2EHEX2E_603979912(sectors_603979868[chckIndx(subInt(i_603979910, 1), 0, (sectors_603979868).length - 1)], subInt(sect_603979911, 1))));;
+            res_620757093.push(HEX5BHEX5D_620757156(v_620757085, HEX2EHEX2E_620757128(sectors_620757084[chckIndx(subInt(i_620757126, 1), 0, (sectors_620757084).length - 1)], subInt(sect_620757127, 1))));;
             }
             
             F.line = 172;
-            i_469762224 = addInt(i_469762224, 1);
-            if (!(((sectors_603979868).length == L_469762225))) {
+            i_486539509 = addInt(i_486539509, 1);
+            if (!(((sectors_620757084).length == L_486539510))) {
             F.line = 173;
             failedAssertImpl_218103864(makeNimstrLit("/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system/iterators.nim(173, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
@@ -6179,36 +4283,36 @@ function dumpSectors_603979865(q_603979866) {
       } while (false);
     } while (false);
     F.line = 173;
-    result_603979867 = nimCopy(null, HEX24_603979991(res_603979877), NTI33554439);
+    result_620757083 = nimCopy(null, HEX24_620757207(res_620757093), NTI33554439);
     break BeforeRet;
   } while (false);
   framePtr = F.prev;
 
-  return result_603979867;
+  return result_620757083;
 
 }
 
-function quillInputHandle_603980042(q_603980043, q_603980043_Idx) {
+function quillInputHandle_620757258(q_620757259, q_620757259_Idx) {
               var Temporary6;
 
   var F = {procname: "quill.quillInputHandle", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
   framePtr = F;
     F.line = 176;
-    var v_603980044 = text_603979859(q_603980043[q_603980043_Idx]);
+    var v_620757260 = text_620757075(q_620757259[q_620757259_Idx]);
     F.line = 177;
-    eventElement_603979853(q_603980043[q_603980043_Idx]).setAttribute("style", toJSStr((makeNimstrLit("min-height: ") || []).concat(HEX24_335544323(addInt(visualElement_603979856(q_603980043[q_603980043_Idx]).scrollHeight, 20)) || [],makeNimstrLit("px; min-width: ") || [],HEX24_335544323(addInt(visualElement_603979856(q_603980043[q_603980043_Idx]).scrollWidth, 20)) || [],makeNimstrLit("px;") || [])));
+    eventElement_620757069(q_620757259[q_620757259_Idx]).setAttribute("style", toJSStr((makeNimstrLit("min-height: ") || []).concat(HEX24_335544323(addInt(visualElement_620757072(q_620757259[q_620757259_Idx]).scrollHeight, 20)) || [],makeNimstrLit("px; min-width: ") || [],HEX24_335544323(addInt(visualElement_620757072(q_620757259[q_620757259_Idx]).scrollWidth, 20)) || [],makeNimstrLit("px;") || [])));
     F.line = 182;
-    var pos_603980045 = eventElement_603979853(q_603980043[q_603980043_Idx]).selectionStart;
+    var pos_620757261 = eventElement_620757069(q_620757259[q_620757259_Idx]).selectionStart;
     F.line = 183;
-    var currentSector_603980046 = -1;
-    if ((0 < (q_603980043[q_603980043_Idx].sectors).length)) {
+    var currentSector_620757262 = -1;
+    if ((0 < (q_620757259[q_620757259_Idx].sectors).length)) {
     Label1: do {
       F.line = 185;
         Label2: while (true) {
-        if (!(q_603980043[q_603980043_Idx].sectors[chckIndx(addInt(currentSector_603980046, 1), 0, (q_603980043[q_603980043_Idx].sectors).length - 1)] <= pos_603980045)) break Label2;
+        if (!(q_620757259[q_620757259_Idx].sectors[chckIndx(addInt(currentSector_620757262, 1), 0, (q_620757259[q_620757259_Idx].sectors).length - 1)] <= pos_620757261)) break Label2;
           F.line = 186;
-          currentSector_603980046 = addInt(currentSector_603980046, 1);
-          if ((currentSector_603980046 == (q_603980043[q_603980043_Idx].sectors).length - 1)) {
+          currentSector_620757262 = addInt(currentSector_620757262, 1);
+          if ((currentSector_620757262 == (q_620757259[q_620757259_Idx].sectors).length - 1)) {
           F.line = 188;
           break Label1;
           }
@@ -6218,50 +4322,50 @@ function quillInputHandle_603980042(q_603980043, q_603980043_Idx) {
     }
     
     F.line = 189;
-    var adjust_603980060 = subInt(((v_603980044) == null ? 0 : (v_603980044).length), q_603980043[q_603980043_Idx].plen);
+    var adjust_620757276 = subInt(((v_620757260) == null ? 0 : (v_620757260).length), q_620757259[q_620757259_Idx].plen);
     F.line = 190;
-    var currentPos_603980061 = q_603980043[q_603980043_Idx].sectors[chckIndx(currentSector_603980046, 0, (q_603980043[q_603980043_Idx].sectors).length - 1)];
+    var currentPos_620757277 = q_620757259[q_620757259_Idx].sectors[chckIndx(currentSector_620757262, 0, (q_620757259[q_620757259_Idx].sectors).length - 1)];
     F.line = 191;
-    var cacheDelete_603980074 = newSeq_603980066(0);
-    if ((currentSector_603980046 < (q_603980043[q_603980043_Idx].sectors).length - 1)) {
+    var cacheDelete_620757290 = newSeq_620757282(0);
+    if ((currentSector_620757262 < (q_620757259[q_620757259_Idx].sectors).length - 1)) {
     Label3: do {
       F.line = 193;
-      var i_603980086 = 0;
+      var i_620757302 = 0;
       F.line = 43;
-      var colontmp__469762208 = 0;
+      var colontmp__486539492 = 0;
       F.line = 43;
-      var colontmp__469762209 = 0;
+      var colontmp__486539493 = 0;
       F.line = 193;
-      colontmp__469762208 = addInt(currentSector_603980046, 1);
+      colontmp__486539492 = addInt(currentSector_620757262, 1);
       F.line = 193;
-      colontmp__469762209 = (q_603980043[q_603980043_Idx].sectors).length - 1;
+      colontmp__486539493 = (q_620757259[q_620757259_Idx].sectors).length - 1;
       F.line = 65;
-      var res_469762211 = colontmp__469762208;
+      var res_486539495 = colontmp__486539492;
       Label4: do {
         F.line = 66;
           Label5: while (true) {
-          if (!(res_469762211 <= colontmp__469762209)) break Label5;
+          if (!(res_486539495 <= colontmp__486539493)) break Label5;
             F.line = 193;
-            i_603980086 = res_469762211;
+            i_620757302 = res_486539495;
             F.line = 193;
-            q_603980043[q_603980043_Idx].sectors[chckIndx(i_603980086, 0, (q_603980043[q_603980043_Idx].sectors).length - 1)] = addInt(q_603980043[q_603980043_Idx].sectors[chckIndx(i_603980086, 0, (q_603980043[q_603980043_Idx].sectors).length - 1)], adjust_603980060);
-              if ((q_603980043[q_603980043_Idx].sectors[chckIndx(i_603980086, 0, (q_603980043[q_603980043_Idx].sectors).length - 1)] <= currentPos_603980061)) Temporary6 = true; else {                Temporary6 = (((v_603980044) == null ? 0 : (v_603980044).length) <= q_603980043[q_603980043_Idx].sectors[chckIndx(i_603980086, 0, (q_603980043[q_603980043_Idx].sectors).length - 1)]);              }            if (Temporary6) {
-            if ((1 < (q_603980043[q_603980043_Idx].sectors).length)) {
+            q_620757259[q_620757259_Idx].sectors[chckIndx(i_620757302, 0, (q_620757259[q_620757259_Idx].sectors).length - 1)] = addInt(q_620757259[q_620757259_Idx].sectors[chckIndx(i_620757302, 0, (q_620757259[q_620757259_Idx].sectors).length - 1)], adjust_620757276);
+              if ((q_620757259[q_620757259_Idx].sectors[chckIndx(i_620757302, 0, (q_620757259[q_620757259_Idx].sectors).length - 1)] <= currentPos_620757277)) Temporary6 = true; else {                Temporary6 = (((v_620757260) == null ? 0 : (v_620757260).length) <= q_620757259[q_620757259_Idx].sectors[chckIndx(i_620757302, 0, (q_620757259[q_620757259_Idx].sectors).length - 1)]);              }            if (Temporary6) {
+            if ((1 < (q_620757259[q_620757259_Idx].sectors).length)) {
             F.line = 197;
-            var child_603980097 = visualElement_603979856(q_603980043[q_603980043_Idx]).childNodes[i_603980086];
-            if (!((child_603980097 === undefined))) {
+            var child_620757313 = visualElement_620757072(q_620757259[q_620757259_Idx]).childNodes[i_620757302];
+            if (!((child_620757313 === undefined))) {
             F.line = 199;
-            visualElement_603979856(q_603980043[q_603980043_Idx]).removeChild(child_603980097);
+            visualElement_620757072(q_620757259[q_620757259_Idx]).removeChild(child_620757313);
             }
             
             F.line = 200;
-            cacheDelete_603980074.push(i_603980086);;
+            cacheDelete_620757290.push(i_620757302);;
             }
             
             }
             
             F.line = 68;
-            res_469762211 = addInt(res_469762211, 1);
+            res_486539495 = addInt(res_486539495, 1);
           }
       } while (false);
     } while (false);
@@ -6269,26 +4373,26 @@ function quillInputHandle_603980042(q_603980043, q_603980043_Idx) {
     
     Label7: do {
       F.line = 201;
-      var i_603980110 = 0;
+      var i_620757326 = 0;
       F.line = 201;
-      var pos_603980111 = 0;
+      var pos_620757327 = 0;
       F.line = 168;
-      var i_469762215 = 0;
+      var i_486539499 = 0;
       F.line = 169;
-      var L_469762216 = (cacheDelete_603980074).length;
+      var L_486539500 = (cacheDelete_620757290).length;
       Label8: do {
         F.line = 170;
           Label9: while (true) {
-          if (!(i_469762215 < L_469762216)) break Label9;
+          if (!(i_486539499 < L_486539500)) break Label9;
             F.line = 201;
-            i_603980110 = i_469762215;
+            i_620757326 = i_486539499;
             F.line = 201;
-            pos_603980111 = cacheDelete_603980074[chckIndx(i_469762215, 0, (cacheDelete_603980074).length - 1)];
+            pos_620757327 = cacheDelete_620757290[chckIndx(i_486539499, 0, (cacheDelete_620757290).length - 1)];
             F.line = 201;
-            delete_603980112(q_603980043[q_603980043_Idx], "sectors", chckRange(subInt(pos_603980111, i_603980110), 0, 2147483647));
+            delete_620757328(q_620757259[q_620757259_Idx], "sectors", chckRange(subInt(pos_620757327, i_620757326), 0, 2147483647));
             F.line = 172;
-            i_469762215 = addInt(i_469762215, 1);
-            if (!(((cacheDelete_603980074).length == L_469762216))) {
+            i_486539499 = addInt(i_486539499, 1);
+            if (!(((cacheDelete_620757290).length == L_486539500))) {
             F.line = 173;
             failedAssertImpl_218103864(makeNimstrLit("/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system/iterators.nim(173, 11) `len(a) == L` the length of the seq changed while iterating over it"));
             }
@@ -6297,148 +4401,166 @@ function quillInputHandle_603980042(q_603980043, q_603980043_Idx) {
       } while (false);
     } while (false);
     F.line = 210;
-    q_603980043[q_603980043_Idx].current = currentSector_603980046;
+    q_620757259[q_620757259_Idx].current = currentSector_620757262;
     F.line = 211;
-    q_603980043[q_603980043_Idx].plen = ((v_603980044) == null ? 0 : (v_603980044).length);
+    q_620757259[q_620757259_Idx].plen = ((v_620757260) == null ? 0 : (v_620757260).length);
     F.line = 212;
-    var e_603980134 = 0;
-    if ((currentSector_603980046 < (q_603980043[q_603980043_Idx].sectors).length - 1)) {
+    var e_620757350 = 0;
+    if ((currentSector_620757262 < (q_620757259[q_620757259_Idx].sectors).length - 1)) {
     F.line = 214;
-    e_603980134 = subInt(q_603980043[q_603980043_Idx].sectors[chckIndx(addInt(currentSector_603980046, 1), 0, (q_603980043[q_603980043_Idx].sectors).length - 1)], 1);
+    e_620757350 = subInt(q_620757259[q_620757259_Idx].sectors[chckIndx(addInt(currentSector_620757262, 1), 0, (q_620757259[q_620757259_Idx].sectors).length - 1)], 1);
     F.line = 216;
     rawEcho(makeNimstrLit("Using sector"));
     }
     else {
       F.line = 218;
-      e_603980134 = ((v_603980044) == null ? -1 : (v_603980044).length - 1);
+      e_620757350 = ((v_620757260) == null ? -1 : (v_620757260).length - 1);
       F.line = 220;
       rawEcho(makeNimstrLit("Using end"));
     }
     
     F.line = 222;
-    rawEcho(makeNimstrLit("Current sector: "), HEX24_335544323(currentSector_603980046));
+    rawEcho(dumpSectors_620757081(q_620757259[q_620757259_Idx]));
     F.line = 223;
-    rawEcho(dumpSectors_603979865(q_603980043[q_603980043_Idx]));
-    F.line = 224;
-    q_603980043[q_603980043_Idx].onDraw(q_603980043, q_603980043_Idx, HEX5BHEX5D_603979940(v_603980044, HEX2EHEX2E_603979912(currentPos_603980061, e_603980134)), (adjust_603980060 < 0));
+    q_620757259[q_620757259_Idx].onDraw(q_620757259, q_620757259_Idx, HEX5BHEX5D_620757156(v_620757260, HEX2EHEX2E_620757128(currentPos_620757277, e_620757350)), (adjust_620757276 < 0));
   framePtr = F.prev;
 
   
 }
 
-function enter_603980189(q_603980190, q_603980190_Idx, pos_603980191) {
+function enter_620757396(q_620757397, q_620757397_Idx, pos_620757398) {
     var Temporary1;
 
   var F = {procname: "quill.enter", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
   framePtr = F;
+    F.line = 245;
+    q_620757397[q_620757397_Idx].sectors.push(addInt((Temporary1 = HEX5BHEX5D_620757399(q_620757397[q_620757397_Idx].sectors, 1), Temporary1)[0][Temporary1[1]], pos_620757398));;
     F.line = 246;
-    q_603980190[q_603980190_Idx].sectors.push(addInt((Temporary1 = HEX5BHEX5D_603980192(q_603980190[q_603980190_Idx].sectors, 1), Temporary1)[0][Temporary1[1]], pos_603980191));;
+    visualElement_620757072(q_620757397[q_620757397_Idx]).appendChild(document.createElement("span"));
     F.line = 247;
-    visualElement_603979856(q_603980190[q_603980190_Idx]).appendChild(document.createElement("span"));
-    F.line = 248;
-    quillInputHandle_603980042(q_603980190, q_603980190_Idx);
+    quillInputHandle_620757258(q_620757397, q_620757397_Idx);
   framePtr = F.prev;
 
   
 }
 
-function element_603979850(q_603979851) {
-  var result_603979852 = null;
+function HEX5BHEX5DHEX3D_939524156(parent_939524157, i_939524158, child_939524159) {
+  var F = {procname: "utils.[]=", prev: framePtr, filename: "/home/runner/Quill/src/quill/utils.nim", line: 0};
+  framePtr = F;
+    F.line = 49;
+    parent_939524157.replaceChild(child_939524159, parent_939524157.childNodes[i_939524158]);
+  framePtr = F.prev;
+
+  
+}
+
+function draw_620757393(q_620757394, q_620757394_Idx, n_620757395) {
+  var F = {procname: "quill.draw", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
+  framePtr = F;
+    F.line = 239;
+    HEX5BHEX5DHEX3D_939524156(visualElement_620757072(q_620757394[q_620757394_Idx]), q_620757394[q_620757394_Idx].current, n_620757395);
+  framePtr = F.prev;
+
+  
+}
+
+function element_620757066(q_620757067) {
+  var result_620757068 = null;
 
   var F = {procname: "quill.element", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
   framePtr = F;
     F.line = 146;
-    result_603979852 = q_603979851.internalElm;
+    result_620757068 = q_620757067.internalElm;
   framePtr = F.prev;
 
-  return result_603979852;
+  return result_620757068;
 
 }
 
-function initGutter_1073741830(q_1073741831, q_1073741831_Idx) {
+function initGutter_956301318(q_956301319, q_956301319_Idx) {
 
-function handleGutter_1073741836() {
+function handleGutter_956301324() {
   var F = {procname: "initGutter.handleGutter", prev: framePtr, filename: "/home/runner/Quill/src/quill/ext/gutters.nim", line: 0};
   framePtr = F;
     F.line = 16;
-    gutter_1073741833.setAttribute("style", (("min-height: " + toJSStr(HEX24_335544323(addInt(visualElement_603979856(q_1073741831[q_1073741831_Idx]).scrollHeight, 20)))) + "px;"));
+    gutter_956301321.setAttribute("style", (("min-height: " + toJSStr(HEX24_335544323(addInt(visualElement_620757072(q_956301319[q_956301319_Idx]).scrollHeight, 20)))) + "px;"));
     F.line = 17;
-    linecount_1073741835 = 1;
+    linecount_956301323 = 1;
     Label1: do {
       F.line = 18;
-      var c_1073741837 = 0;
+      var c_956301325 = 0;
       F.line = 57;
-      var colontmp__469762241 = null;
+      var colontmp__486539530 = null;
       F.line = 18;
-      colontmp__469762241 = eventElement_603979853(q_1073741831[q_1073741831_Idx]).value;
+      colontmp__486539530 = eventElement_620757069(q_956301319[q_956301319_Idx]).value;
       F.line = 70;
-      var iHEX60gensym6_469762242 = 0;
+      var iHEX60gensym6_486539531 = 0;
       F.line = 71;
-      var nHEX60gensym6_469762243 = ((colontmp__469762241) == null ? 0 : (colontmp__469762241).length);
+      var nHEX60gensym6_486539532 = ((colontmp__486539530) == null ? 0 : (colontmp__486539530).length);
       Label2: do {
         F.line = 75;
           Label3: while (true) {
-          if (!(iHEX60gensym6_469762242 < nHEX60gensym6_469762243)) break Label3;
+          if (!(iHEX60gensym6_486539531 < nHEX60gensym6_486539532)) break Label3;
             F.line = 18;
-            c_1073741837 = colontmp__469762241.charCodeAt(chckIndx(iHEX60gensym6_469762242, 0, (colontmp__469762241).length - 1));
-            if ((c_1073741837 == 10)) {
+            c_956301325 = colontmp__486539530.charCodeAt(chckIndx(iHEX60gensym6_486539531, 0, (colontmp__486539530).length - 1));
+            if ((c_956301325 == 10)) {
             F.line = 20;
-            linecount_1073741835 = addInt(linecount_1073741835, 1);
+            linecount_956301323 = addInt(linecount_956301323, 1);
             }
             
             F.line = 74;
-            iHEX60gensym6_469762242 = addInt(iHEX60gensym6_469762242, 1);
+            iHEX60gensym6_486539531 = addInt(iHEX60gensym6_486539531, 1);
           }
       } while (false);
     } while (false);
-    if ((linecount_1073741835 < plinecount_1073741834)) {
+    if ((linecount_956301323 < plinecount_956301322)) {
     Label4: do {
       F.line = 22;
-      var __1073741846 = 0;
+      var __956301334 = 0;
       F.line = 75;
-      var colontmp__469762246 = 0;
+      var colontmp__486539535 = 0;
       F.line = 22;
-      colontmp__469762246 = subInt(plinecount_1073741834, linecount_1073741835);
+      colontmp__486539535 = subInt(plinecount_956301322, linecount_956301323);
       F.line = 90;
-      var res_469762247 = 1;
+      var res_486539536 = 1;
       Label5: do {
         F.line = 91;
           Label6: while (true) {
-          if (!(res_469762247 <= colontmp__469762246)) break Label6;
+          if (!(res_486539536 <= colontmp__486539535)) break Label6;
             F.line = 22;
-            __1073741846 = res_469762247;
+            __956301334 = res_486539536;
             F.line = 23;
-            var lc_1073741847 = gutter_1073741833.lastChild;
+            var lc_956301335 = gutter_956301321.lastChild;
             F.line = 22;
-            gutter_1073741833.removeChild(lc_1073741847);
+            gutter_956301321.removeChild(lc_956301335);
             F.line = 93;
-            res_469762247 = addInt(res_469762247, 1);
+            res_486539536 = addInt(res_486539536, 1);
           }
       } while (false);
     } while (false);
     }
     else {
-    if ((plinecount_1073741834 < linecount_1073741835)) {
+    if ((plinecount_956301322 < linecount_956301323)) {
     F.line = 26;
-    var c_1073741848 = document.createElement("div");
+    var c_956301336 = document.createElement("div");
     F.line = 27;
-    c_1073741848.appendChild(document.createTextNode(toJSStr(HEX24_335544323(linecount_1073741835))));
+    c_956301336.appendChild(document.createTextNode(toJSStr(HEX24_335544323(linecount_956301323))));
     F.line = 28;
-    gutter_1073741833.appendChild(c_1073741848);
+    gutter_956301321.appendChild(c_956301336);
     }
     }
     F.line = 29;
-    plinecount_1073741834 = linecount_1073741835;
+    plinecount_956301322 = linecount_956301323;
   framePtr = F.prev;
 
   
 }
     
-function HEX3Aanonymous_1073741849(e_1073741850) {
+function HEX3Aanonymous_956301337(e_956301338) {
       var F = {procname: "initGutter.:anonymous", prev: framePtr, filename: "/home/runner/Quill/src/quill/ext/gutters.nim", line: 0};
       framePtr = F;
         F.line = 31;
-        handleGutter_1073741836();
+        handleGutter_956301324();
       framePtr = F.prev;
 
       
@@ -6447,33 +4569,33 @@ function HEX3Aanonymous_1073741849(e_1073741850) {
   var F = {procname: "gutters.initGutter", prev: framePtr, filename: "/home/runner/Quill/src/quill/ext/gutters.nim", line: 0};
   framePtr = F;
     F.line = 9;
-    var tg_1073741832 = element_603979850(q_1073741831[q_1073741831_Idx]).parentNode;
+    var tg_956301320 = element_620757066(q_956301319[q_956301319_Idx]).parentNode;
     F.line = 10;
-    var gutter_1073741833 = document.createElement("div");
+    var gutter_956301321 = document.createElement("div");
     F.line = 11;
-    gutter_1073741833.className = "quill-gutter";
+    gutter_956301321.className = "quill-gutter";
     F.line = 12;
-    tg_1073741832.insertBefore(gutter_1073741833, element_603979850(q_1073741831[q_1073741831_Idx]));
+    tg_956301320.insertBefore(gutter_956301321, element_620757066(q_956301319[q_956301319_Idx]));
     F.line = 13;
-    var plinecount_1073741834 = 0;
+    var plinecount_956301322 = 0;
     F.line = 14;
-    var linecount_1073741835 = 1;
+    var linecount_956301323 = 1;
     F.line = 30;
-    eventElement_603979853(q_1073741831[q_1073741831_Idx]).addEventListener("input", HEX3Aanonymous_1073741849, false);
+    eventElement_620757069(q_956301319[q_956301319_Idx]).addEventListener("input", HEX3Aanonymous_956301337, false);
     F.line = 33;
-    handleGutter_1073741836();
+    handleGutter_956301324();
   framePtr = F.prev;
 
   
 }
 
-function init_603980170(q_603980171, q_603980171_Idx) {
+function init_620757377(q_620757378, q_620757378_Idx) {
     
-function HEX3Aanonymous_603980172(ev_603980173) {
+function HEX3Aanonymous_620757379(ev_620757380) {
       var F = {procname: "init.:anonymous", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
       framePtr = F;
-        F.line = 229;
-        quillInputHandle_603980042(q_603980171, q_603980171_Idx);
+        F.line = 228;
+        quillInputHandle_620757258(q_620757378, q_620757378_Idx);
       framePtr = F.prev;
 
       
@@ -6481,45 +4603,39 @@ function HEX3Aanonymous_603980172(ev_603980173) {
 
   var F = {procname: "quill.init", prev: framePtr, filename: "/home/runner/Quill/src/quill.nim", line: 0};
   framePtr = F;
-    F.line = 228;
-    eventElement_603979853(q_603980171[q_603980171_Idx]).addEventListener("input", HEX3Aanonymous_603980172, false);
-    F.line = 231;
-    q_603980171[q_603980171_Idx].onDraw(q_603980171, q_603980171_Idx, text_603979859(q_603980171[q_603980171_Idx]), false);
+    F.line = 227;
+    eventElement_620757069(q_620757378[q_620757378_Idx]).addEventListener("input", HEX3Aanonymous_620757379, false);
+    F.line = 230;
+    q_620757378[q_620757378_Idx].onDraw(q_620757378, q_620757378_Idx, text_620757075(q_620757378[q_620757378_Idx]), false);
   framePtr = F.prev;
 
   
 }
 
-function HEX3Aanonymous_469762139(q_469762140, q_469762140_Idx, str_469762141, isDel_469762142) {
+function HEX3Aanonymous_486539350(q_486539351, q_486539351_Idx, str_486539352, isDel_486539353) {
       var Temporary1;
-      var Temporary2;
-      var Temporary3;
-      var Temporary4;
 
-  var F = {procname: "main.:anonymous", prev: framePtr, filename: "/home/runner/Quill/tests/main.nim", line: 0};
+  var F = {procname: "main.:anonymous", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
   framePtr = F;
-    F.line = 18;
-    var txt_469762143 = document.createElement("span");
-    F.line = 19;
-    var color_469762144 = genRandomColor_469762055();
-    F.line = 20;
-    F.line = 20;
-    var fmtRes_469762149 = [mnewString(0)];
-    F.line = 20;
-    fmtRes_469762149[0].push.apply(fmtRes_469762149[0], makeNimstrLit("color: "));;
-    F.line = 20;
-    formatValue_637534370(fmtRes_469762149, 0, color_469762144, []);
-    txt_469762143.setAttribute("style", toJSStr(fmtRes_469762149[0]));
-    F.line = 21;
-    txt_469762143.appendChild(document.createTextNode(str_469762141));
-    F.line = 22;
-    draw_603980186(q_469762140, q_469762140_Idx, txt_469762143);
-    if (!(((((Temporary1 = text_603979859(q_469762140[q_469762140_Idx]), Temporary1)) == null ? 0 : (Temporary1).length) == 0))) {
-      if (!((Temporary4 = text_603979859(q_469762140[q_469762140_Idx]), Temporary4).charCodeAt(chckIndx(subInt((((Temporary3 = text_603979859(q_469762140[q_469762140_Idx]), Temporary3)) == null ? 0 : (Temporary3).length), 1), 0, (Temporary4).length - 1)) == 10)) Temporary2 = false; else {        Temporary2 = !(isDel_469762142);      }    if (Temporary2) {
-    F.line = 26;
-    insert_603980223(q_469762140, q_469762140_Idx, "Hey you made a newline!");
-    F.line = 27;
-    enter_603980189(q_469762140, q_469762140_Idx, ((str_469762141) == null ? 0 : (str_469762141).length));
+    F.line = 39;
+    highlight_486539345(str_486539352);
+    F.line = 40;
+    rawEcho(makeNimstrLit("\""), cstrToNimstr(str_486539352), makeNimstrLit("\""));
+    F.line = 41;
+    var istr_486539354 = str_486539352.trim();
+    if (!((((str_486539352) == null ? 0 : (str_486539352).length) == 0))) {
+    if (((str_486539352.charCodeAt(chckIndx(subInt(((str_486539352) == null ? 0 : (str_486539352).length), 1), 0, (str_486539352).length - 1)) == 10) && !(isDel_486539353))) {
+    F.line = 44;
+    var indent_486539355 = getIndent_486539285(str_486539352);
+      if (!(1 < ((istr_486539354) == null ? 0 : (istr_486539354).length))) Temporary1 = false; else {        Temporary1 = (ConstSet3[istr_486539354.charCodeAt(chckIndx(subInt(((istr_486539354) == null ? 0 : (istr_486539354).length), 1), 0, (istr_486539354).length - 1))] != undefined);      }    if (Temporary1) {
+    F.line = 46;
+    if (null != "  ") { if (null == indent_486539355) indent_486539355 = "  "; else indent_486539355 += "  "; };
+    }
+    
+    F.line = 47;
+    insert_620757430(q_486539351, q_486539351_Idx, indent_486539355);
+    F.line = 48;
+    enter_620757396(q_486539351, q_486539351_Idx, ((str_486539352) == null ? 0 : (str_486539352).length));
     }
     
     }
@@ -6528,24 +4644,132 @@ function HEX3Aanonymous_469762139(q_469762140, q_469762140_Idx, str_469762141, i
 
   
 }
-var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/main.nim", line: 0};
+
+function HEX3Aanonymous_486539369(e_486539370) {
+  var F = {procname: "main.:anonymous", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
+  framePtr = F;
+    F.line = 51;
+    var content_486539371 = e_486539370["data"];
+    F.line = 53;
+    var typ_486539372 = content_486539371["type"];
+    if ((typ_486539372 == "error")) {
+    F.line = 55;
+    rawEcho(makeNimstrLit("Error: "), cstrToNimstr(content_486539371["msg"]));
+    }
+    else {
+    if ((typ_486539372 == "data")) {
+    F.line = 57;
+    var data_486539373 = nimCopy(null, content_486539371["data"], NTI486539345);
+    F.line = 58;
+    var root_486539374 = document.createElement("span");
+    Label1: do {
+      F.line = 59;
+      var res_486539396 = null;
+      F.line = 235;
+      var i_486539526 = 0;
+      F.line = 236;
+      var L_486539527 = (data_486539373).length;
+      Label2: do {
+        F.line = 237;
+          Label3: while (true) {
+          if (!(i_486539526 < L_486539527)) break Label3;
+            F.line = 59;
+            res_486539396 = data_486539373[chckIndx(i_486539526, 0, (data_486539373).length - 1)];
+            if ((res_486539396.kind == "comment")) {
+            F.line = 61;
+            var elm_486539397 = document.createElement("span");
+            F.line = 62;
+            elm_486539397.setAttribute("class", "hljs-comment");
+            F.line = 63;
+            elm_486539397.appendChild(document.createTextNode(res_486539396.value));
+            F.line = 64;
+            root_486539374.appendChild(elm_486539397);
+            }
+            else {
+            if ((res_486539396.kind == "num")) {
+            F.line = 66;
+            var elm_486539398 = document.createElement("span");
+            F.line = 67;
+            elm_486539398.setAttribute("class", "hljs-number");
+            F.line = 68;
+            elm_486539398.appendChild(document.createTextNode(res_486539396.value));
+            F.line = 69;
+            root_486539374.appendChild(elm_486539398);
+            }
+            else {
+            if ((res_486539396.kind == "str")) {
+            F.line = 71;
+            var elm_486539399 = document.createElement("span");
+            F.line = 72;
+            elm_486539399.setAttribute("class", "hljs-string");
+            F.line = 73;
+            elm_486539399.appendChild(document.createTextNode(res_486539396.value));
+            F.line = 74;
+            root_486539374.appendChild(elm_486539399);
+            }
+            else {
+            if ((res_486539396.kind == "keyword")) {
+            F.line = 76;
+            var elm_486539400 = document.createElement("span");
+            F.line = 77;
+            elm_486539400.setAttribute("class", "hljs-keyword");
+            F.line = 78;
+            elm_486539400.appendChild(document.createTextNode(res_486539396.value));
+            F.line = 79;
+            root_486539374.appendChild(elm_486539400);
+            }
+            else {
+            if ((res_486539396.kind == "common")) {
+            F.line = 81;
+            var elm_486539401 = document.createElement("span");
+            F.line = 82;
+            elm_486539401.setAttribute("class", "hljs-built_in");
+            F.line = 83;
+            elm_486539401.appendChild(document.createTextNode(res_486539396.value));
+            F.line = 84;
+            root_486539374.appendChild(elm_486539401);
+            }
+            else {
+              F.line = 87;
+            root_486539374.appendChild(document.createTextNode(res_486539396.value));
+            }
+            }}}}
+            F.line = 239;
+            i_486539526 = addInt(i_486539526, 1);
+            if (!(((data_486539373).length == L_486539527))) {
+            F.line = 240;
+            failedAssertImpl_218103864(makeNimstrLit("/home/runner/.choosenim/toolchains/nim-1.6.12/lib/system/iterators.nim(240, 11) `len(a) == L` the length of the seq changed while iterating over it"));
+            }
+            
+          }
+      } while (false);
+    } while (false);
+    F.line = 89;
+    draw_620757393(myquill_486539349, 0, root_486539374);
+    }
+    }
+  framePtr = F.prev;
+
+  
+}
+var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
 framePtr = F;
-F.line = 14;
-var myquill_469762138 = [newQuill_603979802(document.getElementById("quill"), "70vh")];
-F.line = 15;
-textHEX3D_603979862(myquill_469762138, 0, "Hello world");
-F.line = 16;
-myquill_469762138[0].onDraw = HEX3Aanonymous_469762139;
-F.line = 29;
-initGutter_1073741830(myquill_469762138, 0);
-F.line = 30;
-init_603980170(myquill_469762138, 0);
-F.line = 31;
-rawEcho(makeNimstrLit("Setup Complete!"));
+F.line = 34;
+var myquill_486539349 = [newQuill_620757018(document.getElementById("quill"), "70vh")];
+F.line = 35;
+textHEX3D_620757078(myquill_486539349, 0, "echo \"Hello world\", 10");
+F.line = 36;
+myquill_486539349[0].onDraw = HEX3Aanonymous_486539350;
+F.line = 50;
+mainWorker_486539275.onmessage = (HEX3Aanonymous_486539369);
+F.line = 91;
+initGutter_956301318(myquill_486539349, 0);
+F.line = 92;
+init_620757377(myquill_486539349, 0);
 framePtr = F.prev;
-var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/main.nim", line: 0};
+var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;
-var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/main.nim", line: 0};
+var F = {procname: "module main", prev: framePtr, filename: "/home/runner/Quill/tests/nimedit/main.nim", line: 0};
 framePtr = F;
 framePtr = F.prev;

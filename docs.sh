@@ -1,2 +1,2 @@
 cd ./src
-nim doc --project --index:on -d:nimsuggest --outdir:../docs quill.nim
+nim doc -d:nimsuggest --project --index:on --outdir:../docs quill.nim

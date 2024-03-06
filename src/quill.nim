@@ -4,6 +4,9 @@ else:
   when not defined(js):
     {.error: "Please use js with quill".}
 
+when defined(quillDebug):
+  {.warning: "Quill debug is for devs!".}
+
 {.warning[CStringConv]:off.}
 import std/[dom, sugar, jsffi]
 import quill/utils
@@ -127,6 +130,7 @@ proc newQuill*(e: Element, height: cstring="30vh"): Quill =
   documentElement.setAttr("style", cstring"--quill-height: " & height)
   let textEditor = document.createElement("textarea")
   textEditor.class = "quill-sizing quill-invis"
+  textEditor.setAttr("spellcheck", "false")
   # textEditor.setAttr("contenteditable", "true")
   let body = document.createElement("pre")
   body.class = "quill-sizing quill-text"
@@ -156,6 +160,18 @@ proc `text=`*(q: var Quill, replacment: cstring) =
   q.eventElement.value = replacment
 
 
+when defined(quillDebug):
+  proc dumpSectors(q: Quill): string = 
+    let sectors = q.sectors
+    let v = q.text
+    var res = newSeq[cstring](0)
+    for i, sect in sectors:
+      if i == 0:  
+        res.add v[0..sect-1]
+      else:
+        res.add v[sectors[i-1]..sect-1]
+    return $res
+
 proc quillInputHandle(q: var Quill) = 
   let v = q.text
   q.eventElement.setAttr("style", 
@@ -166,7 +182,7 @@ proc quillInputHandle(q: var Quill) =
   let pos = q.eventElement.selectionStart
   var currentSector = -1
   if q.sectors.len > 0:
-    while q.sectors[currentSector+1] <= pos:
+    while q.sectors[currentSector+1] <= pos: # prev <=
       currentSector += 1
       if currentSector == q.sectors.high:
         break
@@ -196,8 +212,15 @@ proc quillInputHandle(q: var Quill) =
   var e: int
   if currentSector < q.sectors.high:
     e = q.sectors[currentSector+1]-1
+    when defined(quillDebug):
+      echo "Using sector"
   else:
     e = v.high
+    when defined(quillDebug):
+      echo "Using end"
+  when defined(quillDebug):
+    echo "Current sector: ", currentSector
+    echo dumpSectors(q)
   q.onDraw(q, v[currentPos..e], adjust < 0)
 
 proc init*(q: var Quill) =
