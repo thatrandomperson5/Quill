@@ -1,12 +1,13 @@
-`[]`	quill/utils.html#[],cstring,HSlice[T,U]	utils: `[]`[T, U](s: cstring; i: HSlice[T, U]): cstring	
-clear	quill/utils.html#clear,Element	utils: clear(e: Element)	
-lastChild	quill/utils.html#lastChild,Element	utils: lastChild(e: Element): Node	
-toCstr	quill/utils.html#toCstr.t,char	utils: toCstr(c: char): untyped	
-toJsStr	quill/utils.html#toJsStr,string	utils: toJsStr(s: string): cstring	
-createRawText	quill/utils.html#createRawText,string	utils: createRawText(str: string): Node	
-replace	quill/utils.html#replace,cstring,cstring,cstring	utils: replace(tg: cstring; a: cstring; b: cstring): cstring	
-innerHTML	quill/utils.html#innerHTML,Element	utils: innerHTML(e: Element): cstring	
-innerHTML=	quill/utils.html#innerHTML=,Element,cstring	utils: innerHTML=(e: Element; s: cstring)	
-selectionStart	quill/utils.html#selectionStart,Element	utils: selectionStart(txtarea: Element): int	
-selectionEnd	quill/utils.html#selectionEnd,Element	utils: selectionEnd(txtarea: Element): int	
-`[]=`	quill/utils.html#[]=,Element,int,Node	utils: `[]=`(parent: Element; i: int; child: Node)	
+nimTitle	utils	quill/utils.html	module src/quill/utils		0
+nim	`[]`	quill/utils.html#[],cstring,HSlice[T,U]	proc `[]`[T, U](s: cstring; i: HSlice[T, U]): cstring		3
+nim	clear	quill/utils.html#clear,Element	proc clear(e: Element)		8
+nim	lastChild	quill/utils.html#lastChild,Element	proc lastChild(e: Element): Node		11
+nim	toCstr	quill/utils.html#toCstr.t,char	template toCstr(c: char): untyped		15
+nim	toJsStr	quill/utils.html#toJsStr,string	proc toJsStr(s: string): cstring		19
+nim	createRawText	quill/utils.html#createRawText,string	proc createRawText(str: string): Node		26
+nim	replace	quill/utils.html#replace,cstring,cstring,cstring	proc replace(tg: cstring; a: cstring; b: cstring): cstring		31
+nim	innerHTML	quill/utils.html#innerHTML,Element	proc innerHTML(e: Element): cstring		34
+nim	innerHTML=	quill/utils.html#innerHTML=,Element,cstring	proc innerHTML=(e: Element; s: cstring)		37
+nim	selectionStart	quill/utils.html#selectionStart,Element	proc selectionStart(txtarea: Element): int		40
+nim	selectionEnd	quill/utils.html#selectionEnd,Element	proc selectionEnd(txtarea: Element): int		43
+nim	`[]=`	quill/utils.html#[]=,Element,int,Node	proc `[]=`(parent: Element; i: int; child: Node)		46

@@ -1,22 +1,22 @@
-Quill	quill.html
-QuillOnDraw	quill.html#QuillOnDraw	quill: QuillOnDraw	
-QuillOnSegment	quill.html#QuillOnSegment	quill: QuillOnSegment	
-Quill	quill.html#Quill	quill: Quill	
-documentElement	quill.html#documentElement	quill: documentElement	
-newQuill	quill.html#newQuill,Element,cstring	quill: newQuill(e: Element; height: cstring = &quot;30vh&quot;): Quill	
-element	quill.html#element,Quill	quill: element(q: Quill): Element	
-eventElement	quill.html#eventElement,Quill	quill: eventElement(q: Quill): Element	
-visualElement	quill.html#visualElement,Quill	quill: visualElement(q: Quill): Element	
-text	quill.html#text,Quill	quill: text(q: Quill): cstring	
-text=	quill.html#text=,Quill,cstring	quill: text=(q: var Quill; replacment: cstring)	
-init	quill.html#init,Quill	quill: init(q: var Quill)	
-draw	quill.html#draw,Quill,Node	quill: draw(q: var Quill; n: Node)	
-enter	quill.html#enter,Quill,int	quill: enter(q: var Quill; pos: int)	
-insert	quill.html#insert,Quill,cstring	quill: insert(q: var Quill; text: cstring)	
-forceRedraw	quill.html#forceRedraw,Quill	quill: forceRedraw(q: var Quill)	
-Example	quill.html#example	 Example	
-Docs	quill.html#docs	 Docs	
-Installing	quill.html#installing	 Installing	
-Guide	quill.html#guide	 Guide	
-Insert and sectors	quill.html#insert-and-sectors	 Insert and sectors	
-Gutter	quill.html#gutter	 Gutter	
+nimTitle	quill	quill.html	module src/quill		0
+nim	QuillOnDraw	quill.html#QuillOnDraw	type QuillOnDraw		112
+nim	QuillOnSegment	quill.html#QuillOnSegment	type QuillOnSegment		113
+nim	Quill	quill.html#Quill	type Quill		114
+nim	documentElement	quill.html#documentElement	var documentElement		121
+nim	newQuill	quill.html#newQuill,Element,cstring	proc newQuill(e: Element; height: cstring = "30vh"): Quill		123
+nim	element	quill.html#element,Quill	proc element(q: Quill): Element		146
+nim	eventElement	quill.html#eventElement,Quill	proc eventElement(q: Quill): Element		149
+nim	visualElement	quill.html#visualElement,Quill	proc visualElement(q: Quill): Element		152
+nim	text	quill.html#text,Quill	proc text(q: Quill): cstring		155
+nim	text=	quill.html#text=,Quill,cstring	proc text=(q: var Quill; replacment: cstring)		158
+nim	init	quill.html#init,Quill	proc init(q: var Quill)		226
+nim	draw	quill.html#draw,Quill,Node	proc draw(q: var Quill; n: Node)		238
+nim	enter	quill.html#enter,Quill,int	proc enter(q: var Quill; pos: int)		242
+nim	insert	quill.html#insert,Quill,cstring	proc insert(q: var Quill; text: cstring)		250
+nim	forceRedraw	quill.html#forceRedraw,Quill	proc forceRedraw(q: var Quill)		256
+heading	Example	quill.html#example	 Example		0
+heading	Docs	quill.html#docs	 Docs		0
+heading	Installing	quill.html#installing	 Installing		0
+heading	Guide	quill.html#guide	 Guide		0
+heading	Insert and sectors	quill.html#insert-and-sectors	 Insert and sectors		0
+heading	Gutter	quill.html#gutter	 Gutter		0

@@ -1,1 +1,2 @@
-initGutter	quill/ext/gutters.html#initGutter,Quill	gutters: initGutter(q: var Quill)	
+nimTitle	gutters	quill/ext/gutters.html	module src/quill/ext/gutters		0
+nim	initGutter	quill/ext/gutters.html#initGutter,Quill	proc initGutter(q: var Quill)		6
