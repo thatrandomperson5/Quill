@@ -1,0 +1,30 @@
+# ignore files with no extention:
+*
+!*/
+!*.*
+
+# normal ignores:
+*.exe
+nimcache
+*.pdb
+*.ilk
+.*
+
+# R ingores:
+*.nix
+nimv.txt
+BOOTLOG
+nimble-env
+boot.sh
+init.sh
+
+# Java
+**/*.jar
+
+# Ingore built
+**/*.js
+!docs/*.js
+!js/*.js
+
+# Save gitignore
+!*.gitignore
