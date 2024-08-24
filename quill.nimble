@@ -2,9 +2,10 @@
 
 version       = "0.1.1"
 author        = "thatrandomperson5"
-description   = "A new awesome nimble package"
+description   = "A flexible nim library for making frontend text editors using the nim JavaScript compiler."
 license       = "MIT"
 srcDir        = "src"
+backend       = "js" # Might be relevant in the future
 
 
 # Dependencies
