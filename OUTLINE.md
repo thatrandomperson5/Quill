@@ -18,9 +18,9 @@
 
 ## Fixes and Plans
 1. Strip down the current quill, removing everything I don't want. Remove sector system and internal interface structures. [Issue 1 & 3]
-    * [ ] Convert all direct interface procs to unsafe. Deprecate all old procs.
-    * [ ] Create new file structure instead of putting everything in quill.nim
-    * [ ] Deprecate most of the current API.
+    * [X] Convert all direct interface procs to unsafe. Deprecate all old procs.
+    * [X] Create new file structure instead of putting everything in quill.nim
+    * [X] Deprecate most of the current API.
 2. Create a new "context" system to replace the sector system. [Issue 1 & 3]
     * [ ] Flush out ideas
     * [ ] Write the type
