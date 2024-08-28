@@ -17,5 +17,3 @@ task test, "Test":
   # exec "nim js -o:./docs/nimedit.js tests/nimedit/main.nim"
   # exec "nim js -o:./docs/nimedit-worker.js tests/nimedit/worker.nim"
 
-task make, "Build js bindings":
-  exec "sh js/makejs.sh"

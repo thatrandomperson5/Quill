@@ -2,7 +2,7 @@ when defined(nimdoc):
   # import quill/ext/gutters
   discard
 else:
-  when not defined(js):
+  when not (defined(js) or defined(nimsuggest)):
     {.error: "Please use js with quill".}
 
 when defined(quillDebug):
