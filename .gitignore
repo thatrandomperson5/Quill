@@ -18,6 +18,9 @@ nimble-env
 boot.sh
 init.sh
 
+# VS ignores
+**/.vscode
+
 # Java
 **/*.jar
 
