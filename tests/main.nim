@@ -1,6 +1,6 @@
 # From nim test
 import quill, dom, strformat, jscore, strutils
-import quill/ext/gutters
+# import quill/ext/gutters
 
 proc genRandomColor(): string =
   let a = Math.round(Math.random() * 255)
@@ -11,7 +11,9 @@ proc genRandomColor(): string =
 
 
 
-var myquill = newQuill(document.getElementById("quill"), "70vh") # init the quill with height of 70
+var myquill = newQuillFrom(document.getElementById("quill")) # init the quill with height of 70
+myquill.height = "70vh"
+
 myquill.text = "Hello world" # Set the default text
 myquill.onDraw = proc (q: var Quill, str: cstring, isDel: bool) =
   # Create a span of random color and then draw it

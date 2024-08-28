@@ -18,7 +18,8 @@
 
 ## Fixes and Plans
 1. Strip down the current quill, removing everything I don't want. Remove sector system and internal interface structures. [Issue 1 & 3]
-    * [X] Convert all direct interface procs to unsafe. Deprecate all old procs.
+    * [X] Convert all direct interface procs to ~~unsafe~~ QDom. Deprecate all old procs.
+        *  UPDATE: Removed the unsafe system until I start working on exension support. QDom might just overtake the raw idea completely.
     * [X] Create new file structure instead of putting everything in quill.nim
     * [X] Deprecate most of the current API.
 2. Create a new "context" system to replace the sector system. [Issue 1 & 3]

@@ -1,4 +1,4 @@
-import std/dom
+import std/[dom]
 import jsutils
 
 # Natives

@@ -1,3 +1,5 @@
+import std/jsffi
+  
 func `[]`*[T, U](s: cstring, i: HSlice[T, U]): cstring = ($s)[i]
   ## Slice a cstring
   
@@ -18,3 +20,11 @@ proc toJsStr*(s: string): cstring =
 proc replace*(tg: cstring, a: cstring, b: cstring): cstring {.importcpp: "#.replace(#, #)".}
   ## Replace `a` for `b` in `tg`
 
+
+type JsConv = bool | int | JsObject
+  
+template `$$`*[T: JsConv](o: T): untyped =
+  block:
+    proc toCString(o: T): cstring {.importcpp: "#.toString()".}
+    toCString(o)
+   

@@ -1,0 +1,11 @@
+nimTitle	qdom	quill/qdom.html	module src/quill/qdom		0
+nim	QuillDom	quill/qdom.html#QuillDom	type QuillDom		5
+nim	newQuillBase	quill/qdom.html#newQuillBase	proc newQuillBase(): Element		27
+nim	newQuillWrapper	quill/qdom.html#newQuillWrapper,Element,cstring	proc newQuillWrapper(base: Element; height: cstring = ""): Element		34
+nim	newQuillBody	quill/qdom.html#newQuillBody	proc newQuillBody(): Element		57
+nim	newQuillDom	quill/qdom.html#newQuillDom,cstring	proc newQuillDom(height: cstring = ""; readonly = false): QuillDom		73
+nim	mountTo	quill/qdom.html#mountTo,QuillDom,Element	proc mountTo(qd: QuillDom; base: Element; append = true)		93
+nim	readOnly	quill/qdom.html#readOnly,QuillDom	proc readOnly(qd: QuillDom): bool		109
+nim	readOnly=	quill/qdom.html#readOnly=,QuillDom,bool	proc readOnly=(qd: var QuillDom; v: bool)		115
+nim	height	quill/qdom.html#height,QuillDom	proc height(qd: QuillDom): cstring		109
+nim	height=	quill/qdom.html#height=,QuillDom,cstring	proc height=(qd: var QuillDom; v: cstring)		118

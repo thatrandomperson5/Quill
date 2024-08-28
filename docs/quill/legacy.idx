@@ -1,0 +1,13 @@
+nimTitle	legacy	quill/legacy.html	module src/quill/legacy		0
+nim	QuillOnDraw	quill/legacy.html#QuillOnDraw	type QuillOnDraw		12
+nim	QuillOnSegment	quill/legacy.html#QuillOnSegment	type QuillOnSegment		13
+nim	documentElement	quill/legacy.html#documentElement	var documentElement		16
+nim	element	quill/legacy.html#element,Quill	proc element(q: Quill): Element		20
+nim	eventElement	quill/legacy.html#eventElement,Quill	proc eventElement(q: Quill): Element		24
+nim	visualElement	quill/legacy.html#visualElement,Quill	proc visualElement(q: Quill): Element		28
+nim	text	quill/legacy.html#text,Quill	proc text(q: Quill): cstring		32
+nim	text=	quill/legacy.html#text=,Quill,cstring	proc text=(q: var Quill; replacment: cstring)		36
+nim	draw	quill/legacy.html#draw,Quill,Node	proc draw(q: var Quill; n: Node)		43
+nim	enter	quill/legacy.html#enter,Quill,int	proc enter(q: var Quill; pos: int)		47
+nim	insert	quill/legacy.html#insert,Quill,cstring	proc insert(q: var Quill; text: cstring)		51
+nim	forceRedraw	quill/legacy.html#forceRedraw,Quill	proc forceRedraw(q: var Quill)		55

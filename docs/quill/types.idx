@@ -1,0 +1,10 @@
+nimTitle	types	quill/types.html	module src/quill/types		0
+nim	Quill	quill/types.html#Quill	type Quill		8
+nim	newQuill	quill/types.html#newQuill	proc newQuill(): Quill		17
+nim	newQuillFrom	quill/types.html#newQuillFrom,Element	proc newQuillFrom(e: Element): Quill		23
+nim	newQuillFrom	quill/types.html#newQuillFrom,QuillDom	proc newQuillFrom(qd: QuillDom): Quill		29
+nim	height	quill/types.html#height,Quill	proc height(rt`gensym2: Quill): cstring		63
+nim	height=	quill/types.html#height=,Quill,cstring	proc height=(rt`gensym2: Quill; v`gensym2: cstring)		76
+nim	readOnly	quill/types.html#readOnly,Quill	proc readOnly(rt`gensym3: Quill): bool		63
+nim	readOnly=	quill/types.html#readOnly=,Quill,bool	proc readOnly=(rt`gensym3: Quill; v`gensym3: bool)		78
+nimgrp	newquillfrom	quill/types.html#newQuillFrom-procs-all	proc		23

@@ -1,0 +1,9 @@
+nimTitle	domutils	quill/domutils.html	module src/quill/domutils		0
+nim	clear	quill/domutils.html#clear,Element	proc clear(e: Element)		6
+nim	lastChild	quill/domutils.html#lastChild,Element	proc lastChild(e: Element): Node		9
+nim	createRawText	quill/domutils.html#createRawText,string	proc createRawText(str: string): Node		15
+nim	innerHTML	quill/domutils.html#innerHTML,Element	proc innerHTML(e: Element): cstring		22
+nim	innerHTML=	quill/domutils.html#innerHTML=,Element,cstring	proc innerHTML=(e: Element; s: cstring)		25
+nim	selectionStart	quill/domutils.html#selectionStart,Element	proc selectionStart(txtarea: Element): int		28
+nim	selectionEnd	quill/domutils.html#selectionEnd,Element	proc selectionEnd(txtarea: Element): int		31
+nim	`[]=`	quill/domutils.html#[]=,Element,int,Node	proc `[]=`(parent: Element; i: int; child: Node)		34

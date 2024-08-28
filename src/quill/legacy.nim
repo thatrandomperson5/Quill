@@ -2,7 +2,7 @@
 
 {.warning[CStringConv]:off.}
 import std/[dom, sugar]
-import quill/types
+import types
 
 
 ## Contains all legacy deprecated procs

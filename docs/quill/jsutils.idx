@@ -1,0 +1,7 @@
+nimTitle	jsutils	quill/jsutils.html	module src/quill/jsutils		0
+nim	`[]`	quill/jsutils.html#[],cstring,HSlice[T,U]	proc `[]`[T, U](s: cstring; i: HSlice[T, U]): cstring		3
+nim	fromCharCode	quill/jsutils.html#fromCharCode,char	proc fromCharCode(c: char): cstring		6
+nim	toCstr	quill/jsutils.html#toCstr.t,char	template toCstr(c: char): untyped		7
+nim	toJsStr	quill/jsutils.html#toJsStr,string	proc toJsStr(s: string): cstring		13
+nim	replace	quill/jsutils.html#replace,cstring,cstring,cstring	proc replace(tg: cstring; a: cstring; b: cstring): cstring		20
+nim	`$$`	quill/jsutils.html#$$.t,T	template `$$`[T: JsConv](o: T): untyped		26
